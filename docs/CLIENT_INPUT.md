@@ -108,3 +108,38 @@ Approved conversion system:
 Implication:
 
 Stage 3 information architecture should organize pages around the approved conversion system and keep quote request paths visible across homepage, catalog, product, industry, and service pages.
+
+## 2026-05-31: Stage 3 Information Architecture Approved
+
+The client approved the Stage 3 information architecture direction.
+
+Approved structure:
+
+- Russian and English routes:
+  - `/ru/`
+  - `/en/`
+- Catalog index:
+  - `/catalog/`
+- Product pages:
+  - `/products/{slug}/`
+- Homepage discovery paths:
+  - by business type;
+  - by product type;
+  - by production technology.
+- Main catalog groups:
+  - restaurant and cafe accessories;
+  - hotel and hospitality accessories;
+  - business products and corporate gifts;
+  - packaging and souvenirs;
+  - uniforms and textile products;
+  - production services and custom manufacturing.
+- SEO rules:
+  - canonical URLs;
+  - hreflang;
+  - Schema.org;
+  - unique H1 and metadata;
+  - noindex for filters and utility pages where needed.
+
+Implication:
+
+Stage 4 should define structured content models that support these routes, catalog groups, SEO fields, quote-first conversion, and future product expansion.
