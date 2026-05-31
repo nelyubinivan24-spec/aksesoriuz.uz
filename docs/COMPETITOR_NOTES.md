@@ -94,7 +94,17 @@ Recommended patterns:
 
 ## External Competitor Review Backlog
 
-Before finalizing SEO and page hierarchy, review:
+Before finalizing SEO and page hierarchy, perform market and competitor research. Audience priority should not be based on assumptions alone.
+
+Research should help determine:
+
+- which B2B segments show strongest demand;
+- which categories appear most commercially competitive;
+- which search queries are likely to bring qualified leads;
+- how local and regional competitors structure catalogs and quote flows;
+- where Aksessoriuz can differentiate.
+
+Review:
 
 - local Uzbekistan producers of menu covers and branded business accessories;
 - regional restaurant accessory suppliers;
@@ -112,3 +122,18 @@ For each competitor/reference, capture:
 - SEO structure;
 - mobile UX;
 - gaps Aksessoriuz can exploit.
+
+## Research Output Required
+
+Future deliverable:
+
+- `docs/MARKET_RESEARCH.md`
+
+Expected content:
+
+- competitor list;
+- category demand signals;
+- SEO keyword groups;
+- audience priority recommendation;
+- commercial opportunity ranking;
+- website implications.

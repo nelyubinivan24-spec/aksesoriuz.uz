@@ -6,15 +6,31 @@ Define the primary buyer groups, their motivations, objections, and preferred we
 
 ## Audience Priority
 
-Proposed priority:
+Approved strategic direction:
+
+The website should be universal for all qualified B2B clients. No major audience should be excluded at this stage.
+
+Commercial emphasis should be guided by:
+
+- market research;
+- profitability;
+- order size;
+- repeat purchase potential;
+- operational feasibility;
+- category growth potential.
+
+Working audience groups:
 
 1. Restaurants and cafes.
 2. Hotels and hospitality businesses.
 3. Corporate and business clients.
 4. Retail, packaging, and gift buyers.
 5. Agencies, designers, and procurement intermediaries.
+6. Other qualified custom-production buyers.
 
-This order should be validated against actual revenue and profitability.
+UX implication:
+
+The site should give each major segment a clear path while keeping the homepage broad enough to communicate a universal production partner.
 
 ## Segment 1: Restaurants and Cafes
 
@@ -214,11 +230,39 @@ All audiences need:
 - mobile-friendly browsing;
 - fast response expectation.
 
+## Universal B2B Structure
+
+The website should work for any qualified client by offering three navigation paths:
+
+1. By business type:
+   - restaurants and cafes;
+   - hotels;
+   - corporate clients;
+   - retail and packaging;
+   - agencies and custom projects.
+2. By product category:
+   - restaurant accessories;
+   - hotel accessories;
+   - business products;
+   - packaging and souvenirs;
+   - uniforms and textile products;
+   - printed and branded products.
+3. By production need:
+   - UV printing;
+   - laser cutting and engraving;
+   - embossing;
+   - foiling;
+   - printing;
+   - carpentry or custom production.
+
+This structure avoids forcing users to understand the internal catalog before they can request help.
+
 ## Key Questions For Client Validation
 
 - Which audience brings the most revenue?
 - Which audience has the highest growth potential?
-- Which audience should dominate the homepage?
-- Are there audience types we should exclude or de-prioritize?
+- Which audience has the highest profitability?
+- Which categories create repeat orders?
 - What order sizes are ideal?
-- What products should never be promoted as low-margin entry points?
+- What products should not be over-promoted because of low margin or operational complexity?
+- Which segments should be emphasized after market research?

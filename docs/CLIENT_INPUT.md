@@ -1,0 +1,62 @@
+# Client Input Log
+
+This file records approved client inputs that affect strategy, UX, content, and technical decisions.
+
+## 2026-05-31: Stage 1 Strategy Inputs
+
+### Client Priority
+
+The website should not exclude or strongly de-prioritize any major client group. Aksessoriuz is interested in all qualified clients, while the strongest commercial emphasis should be guided by market research and profitability.
+
+Implication:
+
+- Build a universal B2B website structure.
+- Keep all major product and audience segments accessible.
+- Use market research and business data to decide which segments receive stronger homepage, SEO, and campaign emphasis.
+
+### Category Priority
+
+All current and future categories remain strategically relevant.
+
+Implication:
+
+- The catalog should be scalable.
+- Product architecture should support many categories without creating navigation overload.
+- Homepage should highlight representative category groups, not every individual category.
+
+### Pricing Direction
+
+Primary conversion should lead to inquiry or quote request.
+
+Possible secondary pricing mechanic:
+
+- downloadable catalog with prices;
+- viewable price catalog;
+- gated or ungated price list;
+- "from" pricing only if reliable and maintained.
+
+Implication:
+
+- Product pages should not use generic fixed-price e-commerce mechanics by default.
+- CTA language should focus on calculation, consultation, sample, and brief submission.
+
+### Minimum Orders and Timelines
+
+Minimum order quantities and production timelines are not finalized yet.
+
+Implication:
+
+- Content model must include fields for MOQ and timing.
+- UI should support "to be confirmed" or omit these fields until reliable data is available.
+- Final launch content should not invent order terms.
+
+### Public Client Proof
+
+Client logos and cases may be used broadly.
+
+Implication:
+
+- Build strong client proof sections.
+- Use logos and case studies where available.
+- Final launch should still verify image/logo quality and public-use suitability.
+

@@ -35,7 +35,7 @@ The brand should stand for:
 
 ## Differentiation Hypotheses
 
-These claims should be validated:
+These claims should be validated and strengthened with proof:
 
 - The company can produce many product categories in one place.
 - Orders can start from relatively small batches.
@@ -100,6 +100,10 @@ The website will be stronger if we collect:
 - testimonials or short client quotes;
 - manufacturing process photos or video.
 
+Client input:
+
+Client logos and case examples may be used broadly. Before launch, assets should still be checked for image quality, naming accuracy, and suitability for public display.
+
 ## Open Validation Questions
 
 - What is the strongest commercial category today?
@@ -107,6 +111,6 @@ The website will be stronger if we collect:
 - What is the minimum order by category?
 - What are standard production timelines?
 - Which countries and regions are actively served?
-- Which client logos can be publicly shown?
 - Which products should be promoted first?
-- Are prices shown, hidden, or replaced with quote requests?
+- Which products should receive the strongest homepage placement after market research?
+- Which categories can support a downloadable or viewable price catalog?

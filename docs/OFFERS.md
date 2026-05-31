@@ -155,21 +155,46 @@ Recommended trust signals:
 
 ## Pricing Strategy
 
-Recommended approach:
+Approved direction:
 
-Do not show fixed prices for customizable products unless pricing is reliable and maintained.
+The primary conversion path should lead to inquiry or quote request, not direct checkout.
 
-Instead:
+Recommended implementation:
 
 - explain what affects price;
-- show "from" prices only if accurate;
 - offer quote request;
 - provide minimum order guidance.
+- show "from" prices only if accurate and maintainable;
+- optionally provide a downloadable or viewable price catalog.
+
+## Price Catalog Option
+
+The website should be ready to support a price catalog if the business decides to publish one.
+
+Possible formats:
+
+- downloadable PDF catalog;
+- online catalog page with price ranges;
+- gated download after contact submission;
+- manager-sent catalog after Telegram/WhatsApp request.
+
+Recommended default:
+
+Start quote-first. Add a price catalog only when pricing is accurate, maintained, and aligned with sales strategy.
+
+UX note:
+
+If a price catalog exists, it should support conversion rather than replace consultation. Recommended CTA pairing:
+
+- View price catalog;
+- Request exact calculation;
+- Send quantity and logo for final price.
 
 ## Open Questions
 
-- Should prices be shown on any category?
 - What is the minimum order per product type?
 - Is sample ordering paid or free?
 - What is the realistic response time?
 - Which channel is preferred: phone, Telegram, WhatsApp, or form?
+- Should the price catalog be public, downloadable, or available after request?
+- Which product categories can safely show price ranges?
