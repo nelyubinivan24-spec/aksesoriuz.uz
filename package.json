@@ -7,7 +7,9 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "generate:legacy-migration": "node scripts/generate-legacy-migration.mjs",
+    "check:legacy-migration": "node scripts/generate-legacy-migration.mjs --check"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.6",

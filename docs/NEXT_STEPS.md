@@ -2,7 +2,7 @@
 
 ## Current Status
 
-Completed through Stage 12:
+Completed through Stage 13:
 
 - strategy and audience direction;
 - conversion architecture;
@@ -16,22 +16,25 @@ Completed through Stage 12:
 - temporary product-card foundation based on the current site;
 - product detail routes for RU and EN;
 - B2B project brief correction;
-- current-site sitemap inventory and coverage map.
+- current-site sitemap inventory and coverage map;
+- legacy product URL migration manifest;
+- SKU family taxonomy;
+- original subcategory coverage data.
 
 ## Immediate Next Stage
 
-Recommended Stage 13:
+Recommended Stage 14:
 
-Complete B2B catalog coverage system.
+Subcategory landing pages and catalog navigation upgrade.
 
 Goal:
 
-- add a legacy migration manifest for all 255 original product URLs;
-- map every original SKU family to a canonical product family;
-- create structured subcategory landing-page data;
-- decide whether each original SKU becomes a full page, lightweight reference page, family redirect, or hidden migration record;
-- keep product discovery as B2B reference selection with project brief conversion;
-- prepare redirect and SEO rules before launch.
+- add dynamic routes for original subcategory landing pages;
+- show subcategory cards on catalog group pages;
+- connect subcategories to product families and existing reference products;
+- add project brief CTA to every subcategory page;
+- add SEO metadata rules for subcategories;
+- prepare the UI for later lightweight reference pages.
 
 ## Required Client Inputs
 
@@ -41,6 +44,7 @@ Goal:
 - MOQ and timing, if confirmed;
 - price catalog decision;
 - client logos/cases approved for public use.
+- decision on whether all old product URLs should become lightweight public reference pages or selected family redirects.
 
 ## Technical Follow-Ups
 
@@ -48,5 +52,6 @@ Goal:
 - implement mobile navigation menu;
 - add privacy/legal pages before production launch;
 - define legacy URL redirect strategy;
+- implement lightweight reference pages for backlog product records;
 - review deployment provider;
 - review dependency audit before launch.

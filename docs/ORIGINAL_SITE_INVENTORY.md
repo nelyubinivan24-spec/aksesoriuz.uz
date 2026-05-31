@@ -31,6 +31,12 @@ Detailed Stage 12 audit:
 
 - `docs/STAGE_12_SITE_INVENTORY.md`
 
+Stage 13 implementation data:
+
+- `src/data/legacyMigration.ts`
+- `src/data/catalogCoverage.ts`
+- `docs/STAGE_13_CATALOG_COVERAGE.md`
+
 ## Current Main Product Groups
 
 ### Business Products
@@ -187,12 +193,11 @@ Implemented in the Astro foundation:
 - Dynamic service/capability pages for RU and EN.
 - Industry, work, client, about, FAQ, and contact routes for RU and EN.
 
-Current limitation after Stage 12:
+Current limitation after Stage 13:
 
 - 32 B2B reference product cards exist in `src/data/products.ts`.
 - The original site has 255 RU product URLs, so product-level coverage is still partial.
-- Every old product URL needs a migration decision before launch:
-  - full product page;
-  - lightweight reference page;
-  - redirect to product family/subcategory;
-  - hidden migration record until final client cards are approved.
+- Every old product URL now has a manifest record in `src/data/legacyMigration.ts`.
+- 32 old product URLs are already mapped to modeled B2B reference pages.
+- 223 old product URLs remain backlog reference records.
+- 30 original subcategories are mapped in `src/data/catalogCoverage.ts`.

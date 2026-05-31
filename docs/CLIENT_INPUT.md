@@ -241,3 +241,14 @@ Implication:
 - Stage 12 should use the current sitemap and site pages as the control source;
 - every current product group, service, and product URL should receive a new-site destination or migration decision;
 - Stage 13 should focus on completing the B2B catalog coverage system before deeper visual polish or integrations.
+
+## 2026-05-31: Stage 13 Catalog Coverage Approved
+
+The client approved continuing into the catalog coverage system after Stage 12.
+
+Implication:
+
+- old product URLs should be treated as migration assets, not ignored;
+- the rebuild should keep a manifest for all 255 product URLs from the RU sitemap;
+- product families and original subcategories should become structured project data;
+- the next UX step should expose these subcategories as landing pages and navigation paths.
