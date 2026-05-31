@@ -158,3 +158,24 @@ Approved content model:
 Implication:
 
 Stage 5 wireframes should use modular page sections powered by the structured content model rather than one-off page layouts.
+
+## 2026-05-31: Stage 5 UX Wireframes Approved
+
+The client approved the Stage 5 wireframe direction.
+
+Approved UX structure:
+
+- Global header and footer.
+- Homepage with hero, path selection, product groups, real work, materials, process, client proof, and quote CTA.
+- Catalog with discovery tabs, filters, product grid, category explainer, and quote CTA.
+- Category pages as SEO landing pages.
+- Product pages with gallery, specs, customization, related products/services, and product quote form.
+- Industry pages for business-specific product sets.
+- Service pages for production technology entry points.
+- Work/clients, about, FAQ, and contact pages.
+- Inquiry list concept instead of cart.
+- Mobile sticky actions and mobile-first forms.
+
+Implication:
+
+Stage 6 should define a visual system that supports premium B2B manufacturing, dense catalog utility, strong product imagery, and clear conversion without looking like a generic template catalog.
