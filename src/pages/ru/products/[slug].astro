@@ -36,11 +36,12 @@ const relatedProducts = getRelatedProducts(product);
           {categoryLinks.map((link) => <a class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-ink-950 transition hover:text-emerald-700" href={link.href}>{link.title}</a>)}
         </div>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={`/ru/contact/?intent=product&product=${product.id}`}>Добавить в запрос</a>
-          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-line-200 bg-white px-5 text-sm font-semibold text-ink-950 transition hover:border-emerald-700" href={product.legacyUrl}>Открыть на текущем сайте</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={`/ru/contact/?intent=project-quote&reference=${product.id}`}>Запросить расчет проекта</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-line-200 bg-white px-5 text-sm font-semibold text-ink-950 transition hover:border-emerald-700" href={`/ru/contact/?intent=sample&reference=${product.id}`}>Заказать образец</a>
         </div>
         <p class="mt-5 rounded-md border border-line-200 bg-white p-4 text-sm leading-6 text-steel-600">
-          Карточка создана как временная на основе текущего сайта. После получения финальной карточки товара здесь будут точные размеры, варианты материалов, сроки, MOQ и галерея.
+          Это пример изделия на основе текущего сайта. Он нужен как ориентир для переговоров: финальные материалы, конструкция, тираж, брендирование и сроки согласуются под задачу клиента.
+          <a class="font-semibold text-emerald-700" href={product.legacyUrl}>Открыть исходный пример</a>.
         </p>
       </div>
     </div>
@@ -49,8 +50,8 @@ const relatedProducts = getRelatedProducts(product);
   <section class="py-16">
     <div class="container-page grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
       <div>
-        <h2 class="text-3xl font-semibold text-ink-950">Параметры для расчета</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">Временная структура показывает, какие данные будут нужны менеджеру для точного B2B-расчета.</p>
+        <h2 class="text-3xl font-semibold text-ink-950">Параметры проектного брифа</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">Эта страница помогает подготовить разговор с менеджером: что нужно изготовить, из каких материалов, каким тиражом и с каким брендингом.</p>
       </div>
       <div class="grid gap-4 md:grid-cols-2">
         <div class="rounded-md border border-line-200 bg-white p-5">
@@ -72,8 +73,8 @@ const relatedProducts = getRelatedProducts(product);
           </div>
         </div>
         <div class="rounded-md border border-line-200 bg-white p-5">
-          <h3 class="text-sm font-semibold uppercase tracking-[0.14em] text-steel-600">Статус</h3>
-          <p class="mt-4 text-sm leading-6 text-steel-600">Черновая карточка, готова к замене финальными данными клиента.</p>
+          <h3 class="text-sm font-semibold uppercase tracking-[0.14em] text-steel-600">Роль страницы</h3>
+          <p class="mt-4 text-sm leading-6 text-steel-600">Пример изделия и референс для обсуждения, а не товар для покупки через сайт.</p>
         </div>
       </div>
     </div>
@@ -82,8 +83,8 @@ const relatedProducts = getRelatedProducts(product);
   <section class="bg-mist-100 py-16">
     <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
       <div>
-        <h2 class="text-3xl font-semibold text-ink-950">Запросить расчет</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">Отправьте артикул, тираж и пожелания. Форма уже передает контекст страницы через источник заявки.</p>
+        <h2 class="text-3xl font-semibold text-ink-950">Обсудить проект</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">Отправьте ориентир, тираж, материал, логотип и сроки. Дальше менеджер уточнит детали и подготовит расчет или предложение по образцу.</p>
       </div>
       <QuoteForm client:idle locale="ru" source={`product_${product.id}`} />
     </div>

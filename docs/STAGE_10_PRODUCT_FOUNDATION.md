@@ -46,7 +46,7 @@ Catalog integration:
 - homepage draft product storefront;
 - category product grids;
 - related products on product pages;
-- product quote/inquiry CTAs;
+- product quote and sample-request CTAs;
 - links back to current-site source cards for traceability.
 
 ## Current Product Coverage
@@ -105,11 +105,11 @@ Observed:
 - no horizontal overflow;
 - product cards render with images;
 - product detail pages render RU/EN;
-- inquiry CTAs are present.
+- project quote and sample-request CTAs are present.
 
 ## Limitations
 
-These product cards are not final commercial content.
+These product cards are not final commercial content and should be treated as examples/references for B2B project discussion, not as self-service purchase products.
 
 Before launch, each product should be replaced or confirmed with:
 

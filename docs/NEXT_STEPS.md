@@ -20,14 +20,14 @@ Completed through Stage 10:
 
 Recommended Stage 11:
 
-Inquiry list and conversion mechanics.
+B2B project brief and sample-request mechanics.
 
 Goal:
 
-- turn product-card CTAs into a real inquiry list instead of only query-param links;
-- add an inquiry drawer or page;
-- allow multiple products to be submitted in one calculation request;
-- preserve selected product context across catalog and product pages;
+- remove any e-commerce reading from product CTAs;
+- treat product pages as examples and references for custom production;
+- make forms collect a project brief: item, quantity, material, branding, timeline, and contact;
+- support sample request and project quote paths;
 - prepare form payload structure for backend/CRM integration.
 
 ## Required Client Inputs

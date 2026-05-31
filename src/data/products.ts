@@ -95,8 +95,8 @@ function product(id: string, sku: string, ruTitle: string, enTitle: string, cate
     sku,
     title: { ru: ruTitle, en: enTitle },
     description: {
-      ru: "Временная карточка на основе текущего сайта. Финальные материалы, размеры, тираж и комплектация будут уточнены после передачи карточек товаров.",
-      en: "Draft product card based on the current website. Final materials, dimensions, quantity, and configuration will be updated after approved product cards are provided."
+      ru: "Пример изделия с текущего сайта. Используется как ориентир для обсуждения проекта; материалы, размеры, тираж и комплектация уточняются с менеджером.",
+      en: "Reference item based on the current website. Used as a project discussion reference; materials, dimensions, quantity, and configuration are clarified with a manager."
     },
     categoryIds: categoryId === "restaurant-accessories" ? [categoryId, "hotel-accessories"] : [categoryId],
     family,

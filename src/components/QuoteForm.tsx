@@ -8,24 +8,30 @@ type QuoteFormProps = {
 
 const copy = {
   ru: {
-    title: "Запросить расчет",
+    title: "Обсудить проект",
     name: "Ваше имя",
     contact: "Телефон или Telegram",
-    interest: "Что нужно изготовить?",
-    submit: "Отправить запрос",
-    eyebrow: "B2B расчет",
-    note: "Укажите изделие, тираж, материал и желаемые сроки.",
-    success: "Запрос подготовлен. Подключение фактической отправки будет на этапе интеграций."
+    interest: "Какое изделие или задачу нужно обсудить?",
+    quantity: "Примерный тираж",
+    deadline: "Сроки или дата запуска",
+    details: "Материалы, логотип, брендирование, референсы",
+    submit: "Отправить бриф",
+    eyebrow: "Проектный бриф",
+    note: "Опишите задачу: изделие, тираж, материал, логотип, сроки и желаемый результат.",
+    success: "Бриф подготовлен. Подключение фактической отправки будет на этапе интеграций."
   },
   en: {
-    title: "Request calculation",
+    title: "Discuss a project",
     name: "Your name",
     contact: "Phone or Telegram",
-    interest: "What do you need?",
-    submit: "Send request",
-    eyebrow: "B2B quote",
-    note: "Share the product, quantity, material, and desired timing.",
-    success: "Request prepared. Actual submission will be connected during integrations."
+    interest: "What item or task should we discuss?",
+    quantity: "Approximate quantity",
+    deadline: "Deadline or launch date",
+    details: "Materials, logo, branding, references",
+    submit: "Send brief",
+    eyebrow: "Project brief",
+    note: "Describe the task: item, quantity, material, logo, timing, and desired result.",
+    success: "Brief prepared. Actual submission will be connected during integrations."
   }
 };
 
@@ -54,6 +60,20 @@ export default function QuoteForm({ locale, source }: QuoteFormProps) {
         </label>
         <label className="grid gap-2 text-sm font-medium text-graphite-800">
           {t.interest}
+          <input className="min-h-11 rounded-md border border-line-200 bg-mist-100/45 px-3 text-ink-950 outline-none transition focus:border-emerald-700 focus:bg-white" name="interest" type="text" />
+        </label>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="grid gap-2 text-sm font-medium text-graphite-800">
+            {t.quantity}
+            <input className="min-h-11 rounded-md border border-line-200 bg-mist-100/45 px-3 text-ink-950 outline-none transition focus:border-emerald-700 focus:bg-white" name="quantity" type="text" />
+          </label>
+          <label className="grid gap-2 text-sm font-medium text-graphite-800">
+            {t.deadline}
+            <input className="min-h-11 rounded-md border border-line-200 bg-mist-100/45 px-3 text-ink-950 outline-none transition focus:border-emerald-700 focus:bg-white" name="deadline" type="text" />
+          </label>
+        </div>
+        <label className="grid gap-2 text-sm font-medium text-graphite-800">
+          {t.details}
           <textarea className="min-h-28 rounded-md border border-line-200 bg-mist-100/45 px-3 py-3 text-ink-950 outline-none transition focus:border-emerald-700 focus:bg-white" name="message" />
         </label>
       </div>

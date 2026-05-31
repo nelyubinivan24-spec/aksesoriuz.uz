@@ -112,7 +112,7 @@ Expected result:
 - Connect form submission backend or CRM later.
 - Add real product/category data after product cards are provided.
 - Replace temporary product cards with final client-approved product data.
-- Add real inquiry-list mechanics after product cards are stable.
+- Add backend/CRM form submission for project briefs and sample requests.
 - Add privacy and legal pages before production launch.
 - Decide deployment provider.
 - Review `npm audit` moderate findings before launch; do not use forced breaking fixes blindly.
