@@ -60,3 +60,27 @@ Implication:
 - Use logos and case studies where available.
 - Final launch should still verify image/logo quality and public-use suitability.
 
+## 2026-05-31: Stage 1 Market Priorities Approved
+
+The client approved the initial market research direction and recommended strategic priority ranking as the basis for Stage 2.
+
+Approved priority order:
+
+1. HoReCa and hospitality accessories.
+2. Packaging and branded presentation.
+3. Corporate gifts and business products.
+4. Production services: UV printing, laser cutting/engraving, embossing, foiling, printing.
+5. Uniforms and textile.
+
+Approved structural direction:
+
+- The homepage should support three discovery paths:
+  - by business type;
+  - by product type;
+  - by production technology.
+- Primary conversion remains quote/request based.
+- Price catalog remains a possible secondary mechanic.
+
+Implication:
+
+Stage 2 should define the conversion system around quote requests, sample requests, brief submission, quick contact, and optional price catalog access.
