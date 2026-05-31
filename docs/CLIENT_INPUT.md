@@ -252,3 +252,14 @@ Implication:
 - the rebuild should keep a manifest for all 255 product URLs from the RU sitemap;
 - product families and original subcategories should become structured project data;
 - the next UX step should expose these subcategories as landing pages and navigation paths.
+
+## 2026-05-31: Stage 14 Subcategory Landing Pages Approved
+
+The client approved continuing into subcategory landing pages after Stage 13.
+
+Implication:
+
+- original subcategories should become visible B2B navigation paths;
+- catalog group pages should lead to subcategory landing pages, not directly to contact forms;
+- each subcategory should support project brief conversion and preserve current-site traceability;
+- the next product-level step should address backlog product records from the migration manifest.

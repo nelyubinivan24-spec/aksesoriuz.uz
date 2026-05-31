@@ -2,7 +2,7 @@
 
 ## Current Status
 
-Completed through Stage 13:
+Completed through Stage 14:
 
 - strategy and audience direction;
 - conversion architecture;
@@ -19,22 +19,24 @@ Completed through Stage 13:
 - current-site sitemap inventory and coverage map;
 - legacy product URL migration manifest;
 - SKU family taxonomy;
-- original subcategory coverage data.
+- original subcategory coverage data;
+- dynamic subcategory landing pages for RU and EN;
+- catalog group navigation upgraded from preserved slugs to visible B2B landing pages.
 
 ## Immediate Next Stage
 
-Recommended Stage 14:
+Recommended Stage 15:
 
-Subcategory landing pages and catalog navigation upgrade.
+Lightweight reference pages for backlog product records.
 
 Goal:
 
-- add dynamic routes for original subcategory landing pages;
-- show subcategory cards on catalog group pages;
-- connect subcategories to product families and existing reference products;
-- add project brief CTA to every subcategory page;
-- add SEO metadata rules for subcategories;
-- prepare the UI for later lightweight reference pages.
+- create route strategy for the 223 backlog records in `legacyMigration.ts`;
+- decide which records become public lightweight reference pages;
+- decide which records redirect to subcategory or family pages;
+- add SEO-safe metadata for lightweight reference records;
+- keep all pages as B2B references with project brief conversion;
+- prepare old URL redirect rules for production.
 
 ## Required Client Inputs
 

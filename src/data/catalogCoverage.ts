@@ -1,9 +1,10 @@
-import type { CatalogGroup } from "./catalog";
+import type { CatalogGroup, Localized } from "./catalog";
 
 export type CoveragePriority = "high" | "medium";
 
 export type LegacySubcategoryCoverage = {
   id: string;
+  slug: Localized;
   legacySlug: string;
   groupId: CatalogGroup["id"];
   title: string;
@@ -60,7 +61,7 @@ export function getLegacySubcategoriesByGroup(groupId: CatalogGroup["id"]) {
 }
 
 export function getLegacySubcategoryBySlug(slug: string) {
-  return legacySubcategoryCoverage.find((item) => item.legacySlug === slug);
+  return legacySubcategoryCoverage.find((item) => item.slug.ru === slug || item.slug.en === slug || item.legacySlug === slug);
 }
 
 function coverage(
@@ -75,6 +76,10 @@ function coverage(
 
   return {
     id,
+    slug: {
+      ru: id,
+      en: id
+    },
     legacySlug,
     groupId,
     title,

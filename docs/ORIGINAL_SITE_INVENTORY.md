@@ -37,6 +37,12 @@ Stage 13 implementation data:
 - `src/data/catalogCoverage.ts`
 - `docs/STAGE_13_CATALOG_COVERAGE.md`
 
+Stage 14 implementation data:
+
+- `src/pages/ru/catalog/[group]/[subcategory].astro`
+- `src/pages/en/catalog/[group]/[subcategory].astro`
+- `docs/STAGE_14_SUBCATEGORY_LANDING_PAGES.md`
+
 ## Current Main Product Groups
 
 ### Business Products
@@ -201,3 +207,4 @@ Current limitation after Stage 13:
 - 32 old product URLs are already mapped to modeled B2B reference pages.
 - 223 old product URLs remain backlog reference records.
 - 30 original subcategories are mapped in `src/data/catalogCoverage.ts`.
+- 30 RU and 30 EN subcategory landing pages are now generated from the coverage data.

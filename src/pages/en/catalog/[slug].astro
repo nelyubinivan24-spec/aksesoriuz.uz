@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { catalogGroups } from "@data/catalog";
+import { getLegacySubcategoriesByGroup } from "@data/catalogCoverage";
+import { legacyProductMigration } from "@data/legacyMigration";
 import ProductCard from "@components/ProductCard.astro";
 import { getProductsByCatalogGroupId } from "@data/products";
 
@@ -13,6 +15,9 @@ export function getStaticPaths() {
 
 const { group } = Astro.props;
 const products = getProductsByCatalogGroupId(group.id);
+const subcategories = getLegacySubcategoriesByGroup(group.id);
+const legacyCount = (familyIds: readonly string[]) => legacyProductMigration.filter((record) => familyIds.includes(record.familyId)).length;
+const legacyLabel = (legacySlug: string) => group.subcategories.find((item) => item.originalSlug === legacySlug)?.label.en;
 ---
 
 <BaseLayout
@@ -34,6 +39,7 @@ const products = getProductsByCatalogGroupId(group.id);
       </div>
     </div>
   </section>
+
   <section class="py-16">
     <div class="container-page">
       <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
@@ -50,18 +56,19 @@ const products = getProductsByCatalogGroupId(group.id);
       </div>
     </div>
   </section>
+
   <section class="py-16">
     <div class="container-page grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
       <div>
         <h2 class="text-2xl font-semibold text-ink-950">Current-site subcategories</h2>
-        <p class="mt-4 text-sm leading-6 text-steel-600">These directions are preserved from the original structure and will be connected to new product cards.</p>
+        <p class="mt-4 text-sm leading-6 text-steel-600">These directions now lead to B2B landing pages: clients choose a product type, review references, and submit a project brief.</p>
       </div>
       <div class="grid gap-3 md:grid-cols-2">
-        {group.subcategories.map((item) => (
-          <a class="rounded-md border border-line-200 bg-white p-4 transition hover:border-emerald-700" href={`/en/contact/?intent=category&category=${item.originalSlug}`}>
-            <span class="text-sm font-semibold text-ink-950">{item.label.en}</span>
-            <span class="mt-2 block text-xs text-steel-600">Current-site section preserved in taxonomy: {item.originalSlug}</span>
-            <span class="mt-3 inline-flex text-xs font-semibold text-emerald-700">Request selection</span>
+        {subcategories.map((item) => (
+          <a class="rounded-md border border-line-200 bg-white p-4 transition hover:-translate-y-0.5 hover:border-emerald-700 hover:shadow-sm" href={`/en/catalog/${group.slug.en}/${item.slug.en}/`}>
+            <span class="text-sm font-semibold text-ink-950">{legacyLabel(item.legacySlug) ?? item.title}</span>
+            <span class="mt-2 block text-xs leading-5 text-steel-600">Preserved from the current structure: {item.legacySlug}. Connected to {legacyCount(item.productFamilyIds)} legacy URLs in the migration manifest.</span>
+            <span class="mt-3 inline-flex text-xs font-semibold text-emerald-700">Open direction</span>
           </a>
         ))}
       </div>
