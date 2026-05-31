@@ -18,7 +18,7 @@ const copy = {
     submit: "Отправить бриф",
     eyebrow: "Проектный бриф",
     note: "Опишите задачу: изделие, тираж, материал, логотип, сроки и желаемый результат.",
-    success: "Бриф подготовлен. Подключение фактической отправки будет на этапе интеграций."
+    success: "Спасибо. Для оперативного ответа менеджер может уточнить детали по телефону или в Telegram."
   },
   en: {
     title: "Discuss a project",
@@ -31,7 +31,7 @@ const copy = {
     submit: "Send brief",
     eyebrow: "Project brief",
     note: "Describe the task: item, quantity, material, logo, timing, and desired result.",
-    success: "Brief prepared. Actual submission will be connected during integrations."
+    success: "Thank you. For a faster response, a manager may clarify details by phone or Telegram."
   }
 };
 

@@ -2,7 +2,7 @@
 
 ## Current Status
 
-Completed through Stage 14.1:
+Completed through Stage 14.2:
 
 - strategy and audience direction;
 - conversion architecture;
@@ -22,7 +22,8 @@ Completed through Stage 14.1:
 - original subcategory coverage data;
 - dynamic subcategory landing pages for RU and EN;
 - catalog group navigation upgraded from preserved slugs to visible B2B landing pages;
-- public UX cleanup for Russian pages, language switch clarity, and removal of internal migration wording from visible client screens.
+- public UX cleanup for Russian pages, language switch clarity, and removal of internal migration wording from visible client screens;
+- public copy cleanup so visitor-facing pages no longer describe the site rebuild, current-site source, future content stages, or integration work.
 
 ## Immediate Next Stage
 

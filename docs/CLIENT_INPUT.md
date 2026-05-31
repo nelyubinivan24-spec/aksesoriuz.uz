@@ -274,3 +274,17 @@ Implication:
 - Russian pages should use Russian-facing section labels rather than English design-system labels;
 - the language switch should make the active Russian interface clearer;
 - subcategory pages should visually feel like premium B2B pages, not technical coverage reports.
+
+## 2026-05-31: Stage 14.2 Public Copy Correction
+
+The client pointed out that the public homepage still explained the website rebuild process.
+
+Client concern:
+
+- visitor-facing pages should not mention the new site structure, current-site source, content stages, or integration work.
+
+Implication:
+
+- all public copy should be written as live business communication;
+- development, migration, and staging language belongs only in internal docs and code;
+- product and catalog pages should talk about production, materials, branding, references, samples, and project calculation.

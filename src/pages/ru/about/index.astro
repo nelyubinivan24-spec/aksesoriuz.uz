@@ -4,8 +4,8 @@ import { site } from "@data/site";
 
 const facts = [
   { value: "2013", label: "год начала работы компании" },
-  { value: "12+", label: "лет опыта указано на текущем сайте" },
-  { value: "1 500+", label: "довольных клиентов указано на текущем сайте" }
+  { value: "12+", label: "лет опыта" },
+  { value: "1 500+", label: "довольных клиентов" }
 ];
 ---
 
@@ -24,7 +24,7 @@ const facts = [
     <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
       <div>
         <h2 class="text-3xl font-semibold text-ink-950">Факты для доверия</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">Публичные показатели текущего сайта сохранены как основа, но перед финальным запуском их нужно подтвердить и обновить.</p>
+        <p class="mt-4 text-base leading-7 text-steel-600">Опыт, специализация и понятный производственный процесс помогают клиенту заранее оценить надежность подрядчика.</p>
       </div>
       <div class="grid gap-4 md:grid-cols-3">
         {facts.map((fact) => (

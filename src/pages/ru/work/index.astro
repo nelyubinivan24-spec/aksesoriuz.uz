@@ -5,26 +5,26 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const proofBlocks = [
   {
     title: "Клиенты",
-    description: "Раздел будет собирать логотипы, отрасли и публично разрешенные подтверждения сотрудничества."
+    description: "Логотипы, отрасли и публично разрешенные подтверждения сотрудничества помогают оценить опыт компании."
   },
   {
     title: "Кейсы",
-    description: "Для каждого проекта будут фиксироваться задача, продукт, материалы, технология, тираж и результат."
+    description: "Кейсы показывают задачу, продукт, материалы, технологию, тираж и полученный результат."
   },
   {
     title: "Производство",
-    description: "Фотографии процесса, материалов и готовых партий должны усиливать доверие к качеству и срокам."
+    description: "Фотографии процесса, материалов и готовых партий усиливают доверие к качеству и срокам."
   }
 ];
 ---
 
-<BaseLayout locale="ru" path="/ru/work/" pathWithoutLocale="work/" title="Работы и клиенты | Aksessoriuz" description="Будущий раздел работ, клиентов и кейсов Aksessoriuz для усиления доверия и конверсии.">
+<BaseLayout locale="ru" path="/ru/work/" pathWithoutLocale="work/" title="Работы и клиенты | Aksessoriuz" description="Работы, клиенты и кейсы Aksessoriuz для оценки опыта, качества и производственных возможностей.">
   <section class="bg-mist-100 py-16">
     <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-start">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Proof</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Доказательства</p>
         <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink-950 md:text-5xl">Работы и клиенты</h1>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">Этот раздел станет доказательной базой сайта: реальные изделия, клиенты, кейсы и производственные детали. Пока он подготовлен как маршрут для следующего этапа контента.</p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">Реальные изделия, клиенты, кейсы и производственные детали помогают понять качество исполнения до начала переговоров.</p>
       </div>
       <QuoteForm client:idle locale="ru" source="work_page" />
     </div>

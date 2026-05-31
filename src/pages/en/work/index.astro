@@ -5,26 +5,26 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const proofBlocks = [
   {
     title: "Clients",
-    description: "This section will collect logos, industries, and publicly approved collaboration proof."
+    description: "Logos, industries, and publicly approved collaboration proof help buyers evaluate company experience."
   },
   {
     title: "Cases",
-    description: "Each project will describe the task, product, materials, technology, quantity, and result."
+    description: "Cases show the task, product, materials, technology, quantity, and achieved result."
   },
   {
     title: "Production",
-    description: "Process, material, and finished-batch photography should strengthen trust in quality and timing."
+    description: "Process, material, and finished-batch photography strengthen trust in quality and timing."
   }
 ];
 ---
 
-<BaseLayout locale="en" path="/en/work/" pathWithoutLocale="work/" title="Work and clients | Aksessoriuz" description="Future Aksessoriuz work, client, and case section for trust and conversion.">
+<BaseLayout locale="en" path="/en/work/" pathWithoutLocale="work/" title="Work and clients | Aksessoriuz" description="Aksessoriuz work, clients, and cases for evaluating experience, quality, and production capabilities.">
   <section class="bg-mist-100 py-16">
     <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-start">
       <div>
         <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Proof</p>
         <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink-950 md:text-5xl">Work and clients</h1>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">This section will become the site's proof layer: real products, clients, cases, and production details. For now it is prepared as a route for the next content stage.</p>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">Real products, clients, cases, and production details help buyers understand execution quality before negotiations begin.</p>
       </div>
       <QuoteForm client:idle locale="en" source="work_page" />
     </div>

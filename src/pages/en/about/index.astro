@@ -4,8 +4,8 @@ import { site } from "@data/site";
 
 const facts = [
   { value: "2013", label: "year the company started operating" },
-  { value: "12+", label: "years of experience stated on the current site" },
-  { value: "1,500+", label: "satisfied clients stated on the current site" }
+  { value: "12+", label: "years of experience" },
+  { value: "1,500+", label: "satisfied clients" }
 ];
 ---
 
@@ -24,7 +24,7 @@ const facts = [
     <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
       <div>
         <h2 class="text-3xl font-semibold text-ink-950">Trust facts</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">Public figures from the current site are preserved as a base, but they should be confirmed and updated before final launch.</p>
+        <p class="mt-4 text-base leading-7 text-steel-600">Experience, specialization, and a clear production process help clients evaluate contractor reliability in advance.</p>
       </div>
       <div class="grid gap-4 md:grid-cols-3">
         {facts.map((fact) => (
