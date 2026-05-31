@@ -2,7 +2,7 @@
 
 ## Current Status
 
-Completed through Stage 9:
+Completed through Stage 10:
 
 - strategy and audience direction;
 - conversion architecture;
@@ -12,21 +12,23 @@ Completed through Stage 9:
 - UI design system;
 - Astro technical foundation;
 - current-site catalog and capability preservation;
-- premium homepage and visual upgrade.
+- premium homepage and visual upgrade;
+- temporary product-card foundation based on the current site;
+- product detail routes for RU and EN.
 
 ## Immediate Next Stage
 
-Recommended Stage 10:
+Recommended Stage 11:
 
-Product data and product card ingestion.
+Inquiry list and conversion mechanics.
 
 Goal:
 
-- receive the new product cards from the client;
-- map every product to the canonical taxonomy;
-- create product detail routes;
-- add inquiry-list mechanics;
-- replace any remaining temporary imagery with final approved assets.
+- turn product-card CTAs into a real inquiry list instead of only query-param links;
+- add an inquiry drawer or page;
+- allow multiple products to be submitted in one calculation request;
+- preserve selected product context across catalog and product pages;
+- prepare form payload structure for backend/CRM integration.
 
 ## Required Client Inputs
 

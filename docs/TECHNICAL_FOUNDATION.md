@@ -62,6 +62,8 @@ Routes:
 - `/en/services/`
 - `/ru/services/{slug}/`
 - `/en/services/{slug}/`
+- `/ru/products/{slug}/`
+- `/en/products/{slug}/`
 - `/ru/industries/`
 - `/en/industries/`
 - `/ru/work/`
@@ -109,7 +111,8 @@ Expected result:
 - Replace placeholder visual blocks with real product imagery.
 - Connect form submission backend or CRM later.
 - Add real product/category data after product cards are provided.
-- Add product detail pages after product cards are provided.
+- Replace temporary product cards with final client-approved product data.
+- Add real inquiry-list mechanics after product cards are stable.
 - Add privacy and legal pages before production launch.
 - Decide deployment provider.
 - Review `npm audit` moderate findings before launch; do not use forced breaking fixes blindly.

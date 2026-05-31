@@ -1,8 +1,10 @@
 ---
 import ProductGroupCard from "@components/ProductGroupCard.astro";
+import ProductCard from "@components/ProductCard.astro";
 import QuoteForm from "@components/QuoteForm";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { capabilities, catalogGroups } from "@data/catalog";
+import { featuredProducts } from "@data/products";
 
 const heroImage = "https://aksesoriuz.uz/data/uploads/module/structure/20/14/67b1ec2c1c6b3.webp";
 
@@ -102,6 +104,21 @@ const clientLogos = [
           <span class="mt-4 inline-flex text-sm font-semibold text-emerald-700">Open direction</span>
         </a>
       ))}
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="container-page">
+      <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Draft product cards</p>
+          <h2 class="mt-3 text-3xl font-semibold text-ink-950 md:text-4xl">Draft product storefront</h2>
+        </div>
+        <p class="text-base leading-7 text-steel-600">Until final cards are provided, real products and images from the current website are used as a temporary layer. This lets us validate catalog UX, product pages, SEO routes, and inquiry flow now.</p>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {featuredProducts.map((product) => <ProductCard product={product} locale="en" />)}
+      </div>
     </div>
   </section>
 

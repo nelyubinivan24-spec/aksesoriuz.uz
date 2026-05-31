@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { catalogGroups } from "@data/catalog";
+import ProductCard from "@components/ProductCard.astro";
+import { getProductsByCatalogGroupId } from "@data/products";
 
 export function getStaticPaths() {
   return catalogGroups.map((group) => ({
@@ -10,6 +12,7 @@ export function getStaticPaths() {
 }
 
 const { group } = Astro.props;
+const products = getProductsByCatalogGroupId(group.id);
 ---
 
 <BaseLayout
@@ -28,6 +31,22 @@ const { group } = Astro.props;
       <p class="mt-5 max-w-3xl text-lg leading-8 text-white/74">{group.description.ru}</p>
       <div class="mt-8 flex flex-wrap gap-2">
         {group.tags.map((tag) => <span class="rounded-full bg-white/12 px-3 py-1 text-xs font-medium text-white">{tag.ru}</span>)}
+      </div>
+    </div>
+  </section>
+  <section class="py-16">
+    <div class="container-page">
+      <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Draft product cards</p>
+          <h2 class="mt-3 text-3xl font-semibold text-ink-950">Товарные карточки по текущему сайту</h2>
+        </div>
+        <p class="text-base leading-7 text-steel-600">
+          Это временная витрина на основе текущего aksesoriuz.uz. Она нужна, чтобы проверить структуру, UX и заявку до передачи финальных карточек товаров.
+        </p>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {products.map((product) => <ProductCard product={product} locale="ru" />)}
       </div>
     </div>
   </section>
