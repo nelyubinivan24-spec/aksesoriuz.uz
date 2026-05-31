@@ -19,13 +19,15 @@ const { group } = Astro.props;
   title={`${group.title.ru} | Aksessoriuz`}
   description={group.description.ru}
 >
-  <section class="bg-mist-100 py-16">
-    <div class="container-page">
-      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Catalog direction</p>
-      <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink-950">{group.title.ru}</h1>
-      <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">{group.description.ru}</p>
+  <section class="relative overflow-hidden bg-ink-950 py-16 text-white md:py-20">
+    <img class="absolute inset-0 h-full w-full object-cover opacity-45" src={group.image.src} alt={group.image.alt.ru} loading="eager" decoding="async" />
+    <div class="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/82 to-ink-950/30"></div>
+    <div class="container-page relative">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brass-500">Catalog direction</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-white">{group.title.ru}</h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-white/74">{group.description.ru}</p>
       <div class="mt-8 flex flex-wrap gap-2">
-        {group.tags.map((tag) => <span class="rounded-full bg-white px-3 py-1 text-xs font-medium text-graphite-800">{tag.ru}</span>)}
+        {group.tags.map((tag) => <span class="rounded-full bg-white/12 px-3 py-1 text-xs font-medium text-white">{tag.ru}</span>)}
       </div>
     </div>
   </section>

@@ -8,6 +8,11 @@ export type LegacyLink = {
   originalUrl: string;
 };
 
+export type VisualAsset = {
+  src: string;
+  alt: Localized;
+};
+
 export type CatalogGroup = {
   id: string;
   slug: Localized;
@@ -15,6 +20,7 @@ export type CatalogGroup = {
   description: Localized;
   priority: "high" | "medium" | "low";
   tags: Localized[];
+  image: VisualAsset;
   originalUrl?: string;
   subcategories: LegacyLink[];
 };
@@ -24,10 +30,12 @@ export type Capability = {
   slug: Localized;
   title: Localized;
   description: Localized;
+  image: VisualAsset;
   originalUrl: string;
 };
 
 const ruBase = "https://aksesoriuz.uz/ru";
+const assetBase = "https://aksesoriuz.uz";
 
 export const catalogGroups: CatalogGroup[] = [
   {
@@ -45,6 +53,7 @@ export const catalogGroups: CatalogGroup[] = [
       { ru: "Меню", en: "Menus" },
       { ru: "Сервис", en: "Service" }
     ],
+    image: image("/data/uploads/module/structure/3/3/6771a1cacd536.avif", "Аксессуары для ресторанов", "Restaurant accessories"),
     subcategories: [
       legacy("Меню и обложки для меню, барное меню", "Menu and bar menu covers", "menju-i-oblozhki-dlja-menju-barnoe-menju"),
       legacy("Чекхолдеры", "Check holders", "chekholdery"),
@@ -75,6 +84,7 @@ export const catalogGroups: CatalogGroup[] = [
       { ru: "Гостевой сервис", en: "Guest service" },
       { ru: "Папки", en: "Folders" }
     ],
+    image: image("/data/uploads/module/structure/2/3/6771a0d0c267b.avif", "Аксессуары для гостиниц", "Hotel accessories"),
     subcategories: [
       legacy("Меню и Папки", "Menus and folders", "menju-i-papki"),
       legacy("Салфетницы", "Napkin holders", "salfetnicy"),
@@ -96,6 +106,7 @@ export const catalogGroups: CatalogGroup[] = [
       { ru: "Подарки", en: "Gifts" },
       { ru: "Офис", en: "Office" }
     ],
+    image: image("/data/uploads/module/structure/1/3/6771a06b5d4fb.avif", "Бизнес продукция", "Business products"),
     subcategories: [
       legacy("Бизнес наборы", "Business sets", "biznes-nabory"),
       legacy("Ежедневники", "Diaries", "ezhednevniki"),
@@ -127,6 +138,7 @@ export const catalogGroups: CatalogGroup[] = [
       { ru: "Сувениры", en: "Souvenirs" },
       { ru: "Презентация", en: "Presentation" }
     ],
+    image: image("/data/uploads/module/structure/4/3/6771a8394cda3.avif", "Брендированная упаковка", "Branded packaging"),
     subcategories: [
       legacy("Упаковка и Сувенирная продукция", "Packaging and souvenir products", "upakovka-i-suvenirnaja-produkcija"),
       legacy("Сувенирная продукция", "Souvenir products", "upakovochnaya-suvenirnaya-produkciya")
@@ -147,6 +159,7 @@ export const catalogGroups: CatalogGroup[] = [
       { ru: "Текстиль", en: "Textile" },
       { ru: "Команда", en: "Team" }
     ],
+    image: image("/data/uploads/module/structure/22/21/67b2ed9b37388.webp", "Униформа и текстиль", "Uniforms and textile"),
     subcategories: [
       legacy("Униформа", "Uniforms", "uniforma"),
       legacy("Униформа и текстильная продукция", "Uniforms and textile products", "uniforma-i-tekstilnaya-produkciya")
@@ -167,6 +180,7 @@ export const catalogGroups: CatalogGroup[] = [
       { ru: "Лазер", en: "Laser" },
       { ru: "Тиснение", en: "Embossing" }
     ],
+    image: image("/data/uploads/module/structure/27/21/67b2eef3e52aa.webp", "Производственные услуги", "Production services"),
     subcategories: [
       legacy("Ультрафиолетовая печать", "UV printing", "ultrafioletovaya-pechat"),
       legacy("Полиграфия", "Printing", "poligrafiya"),
@@ -181,16 +195,16 @@ export const catalogGroups: CatalogGroup[] = [
 ];
 
 export const capabilities: Capability[] = [
-  capability("uv-printing", "УФ-печать", "UV printing", "Нанесение изображений на кожу, пластик, дерево, металл, бумагу и другие материалы.", "Image application on leather, plastic, wood, metal, paper, and other materials.", "ultrafioletovaya-pechat"),
-  capability("printing", "Полиграфия", "Printing", "Печатная продукция от макета до постпечатной обработки.", "Printed products from layout to post-printing finishing.", "poligrafiya"),
-  capability("foiling", "Фольгирование", "Foiling", "Декоративное фольгирование для премиального вида продукции.", "Decorative foiling for a premium product finish.", "folgirovanie-1"),
-  capability("laser-cutting-engraving", "Лазерная резка и гравировка", "Laser cutting and engraving", "Точная резка и гравировка по дереву, коже, акрилу и другим материалам.", "Precise cutting and engraving on wood, leather, acrylic, and other materials.", "lazernaya-rezka"),
-  capability("embossing", "Тиснение", "Embossing", "Рельефное нанесение логотипов и узоров на кожу, бумагу, дерево и другие материалы.", "Relief logo and pattern application on leather, paper, wood, and other materials.", "tisnenie"),
-  capability("marking", "Маркировка", "Marking", "Маркировка продукции и брендированных деталей.", "Product and branded detail marking.", "markirovka-1"),
-  capability("food-photography", "Food съемка", "Food photography", "Фотосъемка еды и продукции для меню, каталогов и рекламы.", "Food and product photography for menus, catalogs, and advertising.", "food-semka"),
-  capability("souvenir-production", "Сувенирная продукция", "Souvenir production", "Изготовление брендированной сувенирной продукции.", "Production of branded souvenir products.", "upakovochnaya-suvenirnaya-produkciya"),
-  capability("uniforms-textile", "Униформа и текстильная продукция", "Uniforms and textile products", "Производство униформы и текстильных изделий под бренд.", "Production of uniforms and branded textile products.", "uniforma-i-tekstilnaya-produkciya"),
-  capability("carpentry-production", "Столярное производство", "Carpentry production", "Изделия из дерева и столярные решения для бизнеса.", "Wooden products and carpentry solutions for business.", "stolyarnoe-proizvodstvo")
+  capability("uv-printing", "УФ-печать", "UV printing", "Нанесение изображений на кожу, пластик, дерево, металл, бумагу и другие материалы.", "Image application on leather, plastic, wood, metal, paper, and other materials.", "ultrafioletovaya-pechat", "/data/uploads/module/structure/26/21/67b2ee9c6ce05.webp"),
+  capability("printing", "Полиграфия", "Printing", "Печатная продукция от макета до постпечатной обработки.", "Printed products from layout to post-printing finishing.", "poligrafiya", "/data/uploads/module/structure/24/21/67b2ee0ec79b6.webp"),
+  capability("foiling", "Фольгирование", "Foiling", "Декоративное фольгирование для премиального вида продукции.", "Decorative foiling for a premium product finish.", "folgirovanie-1", "/data/uploads/module/structure/1/3/6771a06b5d4fb.avif"),
+  capability("laser-cutting-engraving", "Лазерная резка и гравировка", "Laser cutting and engraving", "Точная резка и гравировка по дереву, коже, акрилу и другим материалам.", "Precise cutting and engraving on wood, leather, acrylic, and other materials.", "lazernaya-rezka", "/data/uploads/module/structure/27/21/67b2eef3e52aa.webp"),
+  capability("embossing", "Тиснение", "Embossing", "Рельефное нанесение логотипов и узоров на кожу, бумагу, дерево и другие материалы.", "Relief logo and pattern application on leather, paper, wood, and other materials.", "tisnenie", "/data/uploads/module/structure/3/3/6771a1cacd536.avif"),
+  capability("marking", "Маркировка", "Marking", "Маркировка продукции и брендированных деталей.", "Product and branded detail marking.", "markirovka-1", "/data/uploads/module/structure/26/21/67b2ee9c6ce05.webp"),
+  capability("food-photography", "Food съемка", "Food photography", "Фотосъемка еды и продукции для меню, каталогов и рекламы.", "Food and product photography for menus, catalogs, and advertising.", "food-semka", "/data/uploads/module/structure/25/21/67b2ee446d2a7.webp"),
+  capability("souvenir-production", "Сувенирная продукция", "Souvenir production", "Изготовление брендированной сувенирной продукции.", "Production of branded souvenir products.", "upakovochnaya-suvenirnaya-produkciya", "/data/uploads/module/structure/21/21/67b2ecdc95b1c.webp"),
+  capability("uniforms-textile", "Униформа и текстильная продукция", "Uniforms and textile products", "Производство униформы и текстильных изделий под бренд.", "Production of uniforms and branded textile products.", "uniforma-i-tekstilnaya-produkciya", "/data/uploads/module/structure/22/21/67b2ed9b37388.webp"),
+  capability("carpentry-production", "Столярное производство", "Carpentry production", "Изделия из дерева и столярные решения для бизнеса.", "Wooden products and carpentry solutions for business.", "stolyarnoe-proizvodstvo", "/data/uploads/module/structure/23/21/67b2edcf6eef6.webp")
 ];
 
 export const productFamilies = [
@@ -242,12 +256,20 @@ function legacy(ru: string, en: string, originalSlug: string): LegacyLink {
   };
 }
 
-function capability(id: string, ruTitle: string, enTitle: string, ruDescription: string, enDescription: string, originalSlug: string): Capability {
+function image(src: string, ruAlt: string, enAlt: string): VisualAsset {
+  return {
+    src: `${assetBase}${src}`,
+    alt: { ru: ruAlt, en: enAlt }
+  };
+}
+
+function capability(id: string, ruTitle: string, enTitle: string, ruDescription: string, enDescription: string, originalSlug: string, imagePath: string): Capability {
   return {
     id,
     slug: { ru: id, en: id },
     title: { ru: ruTitle, en: enTitle },
     description: { ru: ruDescription, en: enDescription },
+    image: image(imagePath, ruTitle, enTitle),
     originalUrl: `${ruBase}/${originalSlug}/`
   };
 }

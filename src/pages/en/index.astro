@@ -3,39 +3,116 @@ import ProductGroupCard from "@components/ProductGroupCard.astro";
 import QuoteForm from "@components/QuoteForm";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { capabilities, catalogGroups } from "@data/catalog";
+
+const heroImage = "https://aksesoriuz.uz/data/uploads/module/structure/20/14/67b1ec2c1c6b3.webp";
+
+const trustStats = [
+  { value: "12+", label: "years of experience" },
+  { value: "1,500+", label: "satisfied clients" },
+  { value: "2013", label: "working with brands" },
+  { value: "B2B", label: "quote by quantity" }
+];
+
+const discoveryPaths = [
+  {
+    title: "By business type",
+    description: "Restaurants, hotels, offices, retail, corporate clients, and teams.",
+    href: "/en/industries/"
+  },
+  {
+    title: "By product",
+    description: "Menus, folders, packaging, business sets, uniforms, and accessories.",
+    href: "/en/catalog/"
+  },
+  {
+    title: "By technology",
+    description: "UV printing, laser, embossing, foiling, printing, and carpentry production.",
+    href: "/en/services/"
+  }
+];
+
+const productionMethods = [
+  "UV printing on different materials",
+  "Laser cutting and engraving",
+  "Embossing and foiling",
+  "Printing and post-print finishing",
+  "Carpentry production",
+  "Textile and branded uniforms"
+];
+
+const processSteps = [
+  { step: "01", title: "Task", text: "We clarify the product, quantity, material, branding, and timing." },
+  { step: "02", title: "Selection", text: "We assemble the right configuration for the business task and budget." },
+  { step: "03", title: "Production", text: "We prepare the layout, approve details, and launch the batch." },
+  { step: "04", title: "Handover", text: "We check quality and deliver the finished products to the client." }
+];
+
+const clientLogos = [
+  { src: "https://aksesoriuz.uz/images/index/logos/istanbul.png", alt: "Istanbul" },
+  { src: "https://aksesoriuz.uz/images/index/logos/testo.png", alt: "Testo" },
+  { src: "https://aksesoriuz.uz/images/index/logos/elma.png", alt: "Elma" },
+  { src: "https://aksesoriuz.uz/images/index/logos/strawberry.png", alt: "Strawberry" },
+  { src: "https://aksesoriuz.uz/images/index/logos/schindler.png", alt: "Schindler" },
+  { src: "https://aksesoriuz.uz/images/index/logos/masterfood.png", alt: "Masterfood" }
+];
 ---
 
 <BaseLayout
   locale="en"
   path="/en/"
   pathWithoutLocale=""
-  title="Aksessoriuz — branded products, packaging and accessories for business"
-  description="Custom branded products, packaging, accessories, uniforms, and business gifts for restaurants, hotels, retail, and companies in Uzbekistan."
+  title="Aksessoriuz — premium branded products for business"
+  description="Premium custom branded products, packaging, accessories, uniforms, and business gifts for restaurants, hotels, retail, and companies in Uzbekistan."
 >
-  <section class="bg-mist-100 py-16 md:py-24">
-    <div class="container-page grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Custom branded production</p>
-        <h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-tight text-ink-950 md:text-6xl">
-          Branded business details people see, touch, and remember
+  <section class="relative overflow-hidden bg-ink-950 text-white">
+    <img class="absolute inset-0 h-full w-full object-cover opacity-55" src={heroImage} alt="Aksessoriuz branded products" loading="eager" decoding="async" />
+    <div class="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/82 to-ink-950/30"></div>
+    <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink-950 to-transparent"></div>
+    <div class="container-page relative py-20 md:py-24 lg:py-28">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brass-500">Custom branded production</p>
+        <h1 class="mt-5 text-4xl font-semibold leading-tight text-white md:text-6xl">
+          Branded products for business
         </h1>
-        <p class="mt-6 max-w-2xl text-lg leading-8 text-steel-600">
-          We produce menu covers, packaging, corporate gifts, uniforms, and branded accessories for restaurants, hotels, retail, and companies.
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-white/78">
+          We produce menu covers, packaging, corporate gifts, uniforms, and branded accessories for restaurants, hotels, retail, and companies. The new structure keeps the current site's full product coverage and leads buyers to a quote request.
         </p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
           <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href="/en/contact/?intent=quote">Request calculation</a>
-          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-line-200 bg-white px-5 text-sm font-semibold text-ink-950 transition hover:border-emerald-700" href="/en/catalog/">View catalog</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 bg-white/10 px-5 text-sm font-semibold text-white backdrop-blur transition hover:border-brass-500 hover:bg-white/15" href="/en/catalog/">View catalog</a>
         </div>
       </div>
-      <QuoteForm client:idle locale="en" source="home_hero" />
+      <div class="mt-14 grid gap-px overflow-hidden rounded-md border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        {trustStats.map((item) => (
+          <div class="bg-ink-950/55 p-5 backdrop-blur">
+            <span class="block text-3xl font-semibold text-white">{item.value}</span>
+            <span class="mt-1 block text-sm text-white/68">{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-line-200 bg-white py-10">
+    <div class="container-page grid gap-4 md:grid-cols-3">
+      {discoveryPaths.map((path) => (
+        <a class="rounded-md border border-line-200 bg-white p-5 transition hover:border-emerald-700 hover:shadow-lg" href={path.href}>
+          <h2 class="text-lg font-semibold text-ink-950">{path.title}</h2>
+          <p class="mt-2 text-sm leading-6 text-steel-600">{path.description}</p>
+          <span class="mt-4 inline-flex text-sm font-semibold text-emerald-700">Open direction</span>
+        </a>
+      ))}
     </div>
   </section>
 
   <section class="py-16 md:py-24">
     <div class="container-page">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-semibold text-ink-950">Complete product structure</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">We preserve the current site coverage: restaurant and hotel accessories, business products, packaging, uniforms, and production services.</p>
+      <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Catalog architecture</p>
+          <h2 class="mt-3 text-3xl font-semibold text-ink-950 md:text-4xl">Complete product structure</h2>
+        </div>
+        <p class="text-base leading-7 text-steel-600">We preserve the current site coverage: restaurant and hotel accessories, business products, packaging, souvenir products, uniforms, and production services.</p>
       </div>
       <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {catalogGroups.map((group) => (
@@ -45,26 +122,93 @@ import { capabilities, catalogGroups } from "@data/catalog";
             href={`/en/catalog/${group.slug.en}/`}
             tags={group.tags.map((tag) => tag.en)}
             ctaLabel="View direction"
+            imageSrc={group.image.src}
+            imageAlt={group.image.alt.en}
+            eyebrow={group.priority === "high" ? "Priority" : "Production"}
           />
         ))}
       </div>
     </div>
   </section>
 
-  <section class="bg-mist-100 py-16 md:py-24">
+  <section class="bg-ink-950 py-16 text-white md:py-24">
     <div class="container-page">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-semibold text-ink-950">Production capabilities</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">The new site keeps all service and capability directions from the current website and connects them to products.</p>
+      <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brass-500">Production capabilities</p>
+          <h2 class="mt-3 text-3xl font-semibold text-white md:text-4xl">Production capabilities</h2>
+        </div>
+        <p class="text-base leading-7 text-white/70">Every service and capability direction from the current website is preserved as a separate route: buyers can enter through a product, material, or technology.</p>
       </div>
-      <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         {capabilities.map((item) => (
-          <a class="rounded-md border border-line-200 bg-white p-5 transition hover:border-emerald-700" href={`/en/services/${item.slug.en}/`}>
-            <h3 class="text-lg font-semibold text-ink-950">{item.title.en}</h3>
-            <p class="mt-2 text-sm leading-6 text-steel-600">{item.description.en}</p>
+          <a class="group overflow-hidden rounded-md border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:border-brass-500" href={`/en/services/${item.slug.en}/`}>
+            <div class="aspect-[4/3] overflow-hidden bg-black">
+              <img class="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100" src={item.image.src} alt={item.image.alt.en} loading="lazy" decoding="async" />
+            </div>
+            <div class="p-4">
+              <h3 class="text-base font-semibold text-white">{item.title.en}</h3>
+              <p class="mt-2 text-xs leading-5 text-white/62">{item.description.en}</p>
+            </div>
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="bg-mist-100 py-16 md:py-24">
+    <div class="container-page grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Materials and methods</p>
+        <h2 class="mt-3 text-3xl font-semibold text-ink-950 md:text-4xl">A premium impression comes from material, precision, and detail control</h2>
+        <p class="mt-5 text-base leading-7 text-steel-600">The site should show not only a product list, but also production competence: how the logo is applied, how the material looks, and which business task the product solves.</p>
+      </div>
+      <div class="grid gap-3 sm:grid-cols-2">
+        {productionMethods.map((method) => (
+          <div class="rounded-md border border-line-200 bg-white p-4">
+            <span class="text-sm font-semibold text-ink-950">{method}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="container-page">
+      <div class="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Process</p>
+          <h2 class="mt-3 text-3xl font-semibold text-ink-950 md:text-4xl">From request to finished batch</h2>
+          <p class="mt-5 text-base leading-7 text-steel-600">The process should reduce risk for B2B buyers: it is clear what happens after the request and who controls the result.</p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-2">
+          {processSteps.map((item) => (
+            <article class="rounded-md border border-line-200 bg-white p-5">
+              <span class="text-sm font-semibold text-brass-500">{item.step}</span>
+              <h3 class="mt-3 text-lg font-semibold text-ink-950">{item.title}</h3>
+              <p class="mt-2 text-sm leading-6 text-steel-600">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-mist-100 py-16 md:py-24">
+    <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Client proof</p>
+        <h2 class="mt-3 text-3xl font-semibold text-ink-950 md:text-4xl">Trust should be supported by real clients and products</h2>
+        <p class="mt-5 text-base leading-7 text-steel-600">Logos from the current site are preserved as the starting proof layer. The next content stage should add cases, batch photography, and task descriptions.</p>
+        <div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {clientLogos.map((logo) => (
+            <div class="grid min-h-20 place-items-center rounded-md border border-line-200 bg-white p-4">
+              <img class="max-h-10 w-auto opacity-80 grayscale" src={logo.src} alt={logo.alt} loading="lazy" decoding="async" />
+            </div>
+          ))}
+        </div>
+      </div>
+      <QuoteForm client:idle locale="en" source="home_premium_final" />
     </div>
   </section>
 </BaseLayout>

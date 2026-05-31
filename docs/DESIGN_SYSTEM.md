@@ -627,3 +627,16 @@ Stage 6 is accepted when:
 - accessibility constraints are documented;
 - system is ready to be translated into code in Stage 7.
 
+## Stage 9 Premium Upgrade Notes
+
+The initial implementation proved the structure but did not yet feel premium enough. Stage 9 upgraded the live UI direction with these additional rules:
+
+- the homepage hero should be product-led and use real Aksessoriuz imagery;
+- product/category cards should launch with real imagery where available, not neutral placeholders;
+- dark premium sections are acceptable when balanced by white and mist sections;
+- brass is used only as a small premium accent;
+- trust proof should appear early, using current-site facts and client logos;
+- production capability should be visible through service imagery, not only text;
+- forms should feel like quick B2B calculation requests, not internal prototypes.
+
+These rules should guide future product, category, service, and case page designs.

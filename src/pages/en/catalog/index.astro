@@ -20,6 +20,9 @@ import { catalogGroups } from "@data/catalog";
           href={`/en/catalog/${category.slug.en}/`}
           tags={category.tags.map((tag) => tag.en)}
           ctaLabel="Open category"
+          imageSrc={category.image.src}
+          imageAlt={category.image.alt.en}
+          eyebrow={category.priority === "high" ? "Priority" : "Production"}
         />
       ))}
     </div>

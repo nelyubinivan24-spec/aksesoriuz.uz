@@ -20,6 +20,9 @@ import { catalogGroups } from "@data/catalog";
           href={`/ru/catalog/${category.slug.ru}/`}
           tags={category.tags.map((tag) => tag.ru)}
           ctaLabel="Открыть категорию"
+          imageSrc={category.image.src}
+          imageAlt={category.image.alt.ru}
+          eyebrow={category.priority === "high" ? "Приоритет" : "Производство"}
         />
       ))}
     </div>

@@ -8,11 +8,14 @@ const t = labels[locale];
 const otherLocale = alternateLocale(locale);
 ---
 
-<header class="border-b border-line-200 bg-white">
+<header class="sticky top-0 z-40 border-b border-line-200 bg-white/92 backdrop-blur">
   <div class="container-page flex min-h-20 items-center justify-between gap-6">
     <a href={`/${locale}/`} class="flex items-center gap-3 font-semibold text-ink-950" aria-label="Aksessoriuz">
-      <span class="grid h-10 w-10 place-items-center rounded-md bg-ink-950 text-sm font-bold text-white">A</span>
-      <span class="text-lg tracking-normal">Aksessoriuz</span>
+      <span class="grid h-11 w-11 place-items-center rounded-md bg-ink-950 text-sm font-bold text-white shadow-sm">A</span>
+      <span class="grid">
+        <span class="text-lg leading-tight tracking-normal">Aksessoriuz</span>
+        <span class="hidden text-[11px] font-medium uppercase tracking-[0.16em] text-steel-600 sm:block">Custom production</span>
+      </span>
     </a>
 
     <nav class="hidden items-center gap-6 text-sm font-medium text-graphite-800 lg:flex" aria-label="Main navigation">

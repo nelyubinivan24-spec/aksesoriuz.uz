@@ -22,15 +22,17 @@ const relatedGroups = catalogGroups.filter((group) => group.id !== "production-s
   title={`${service.title.ru} | Aksessoriuz`}
   description={service.description.ru}
 >
-  <section class="bg-mist-100 py-16 md:py-20">
-    <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+  <section class="relative overflow-hidden bg-ink-950 py-16 text-white md:py-20">
+    <img class="absolute inset-0 h-full w-full object-cover opacity-42" src={service.image.src} alt={service.image.alt.ru} loading="eager" decoding="async" />
+    <div class="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/84 to-ink-950/35"></div>
+    <div class="container-page relative grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-start">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Production capability</p>
-        <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink-950 md:text-5xl">{service.title.ru}</h1>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">{service.description.ru}</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brass-500">Production capability</p>
+        <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-white md:text-5xl">{service.title.ru}</h1>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-white/74">{service.description.ru}</p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
           <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={`/ru/contact/?intent=quote&service=${service.slug.ru}`}>Запросить расчет</a>
-          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-line-200 bg-white px-5 text-sm font-semibold text-ink-950 transition hover:border-emerald-700" href="/ru/catalog/">Смотреть продукцию</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 bg-white/10 px-5 text-sm font-semibold text-white transition hover:border-brass-500 hover:bg-white/15" href="/ru/catalog/">Смотреть продукцию</a>
         </div>
       </div>
       <QuoteForm client:idle locale="ru" source={`service_${service.slug.ru}`} />
@@ -53,6 +55,9 @@ const relatedGroups = catalogGroups.filter((group) => group.id !== "production-s
             href={`/ru/catalog/${group.slug.ru}/`}
             tags={group.tags.map((tag) => tag.ru)}
             ctaLabel="Связанные товары"
+            imageSrc={group.image.src}
+            imageAlt={group.image.alt.ru}
+            eyebrow={group.priority === "high" ? "Приоритет" : "Производство"}
           />
         ))}
       </div>

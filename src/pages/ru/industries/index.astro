@@ -72,6 +72,9 @@ const industries = [
             href={`/ru/catalog/${group.slug.ru}/`}
             tags={group.tags.map((tag) => tag.ru)}
             ctaLabel="Открыть категорию"
+            imageSrc={group.image.src}
+            imageAlt={group.image.alt.ru}
+            eyebrow={group.priority === "high" ? "Приоритет" : "Производство"}
           />
         ))}
       </div>

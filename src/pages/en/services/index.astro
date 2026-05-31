@@ -67,6 +67,9 @@ import { capabilities, catalogGroups } from "@data/catalog";
             href={`/en/catalog/${group.slug.en}/`}
             tags={group.tags.map((tag) => tag.en)}
             ctaLabel="View products"
+            imageSrc={group.image.src}
+            imageAlt={group.image.alt.en}
+            eyebrow={group.priority === "high" ? "Priority" : "Production"}
           />
         ))}
       </div>

@@ -1,27 +1,46 @@
 # Next Steps
 
-## Immediate
+## Current Status
 
-1. Continue Stage 1: Discovery and Strategy.
-2. Validate target audiences and offers with the client.
-3. Approve the initial conversion architecture direction.
-4. Prepare Stage 2 documents after strategy approval.
+Completed through Stage 9:
 
-## Completed Stage 0 Items
+- strategy and audience direction;
+- conversion architecture;
+- information architecture;
+- content model;
+- UX wireframes;
+- UI design system;
+- Astro technical foundation;
+- current-site catalog and capability preservation;
+- premium homepage and visual upgrade.
 
-- GitHub remote connected.
-- Foundation branch pushed.
-- Technical stack approved:
-  - Astro
-  - TypeScript
-  - React islands
-  - Tailwind CSS
-- Stage-based GitHub workflow approved.
+## Immediate Next Stage
 
-## Stage 1 Tasks
+Recommended Stage 10:
 
-- Define target audiences.
-- Define business positioning.
-- Define primary conversion actions.
-- Define trust proof points.
-- Build initial competitor/reference review.
+Product data and product card ingestion.
+
+Goal:
+
+- receive the new product cards from the client;
+- map every product to the canonical taxonomy;
+- create product detail routes;
+- add inquiry-list mechanics;
+- replace any remaining temporary imagery with final approved assets.
+
+## Required Client Inputs
+
+- product card list;
+- product images;
+- materials and branding methods per product;
+- MOQ and timing, if confirmed;
+- price catalog decision;
+- client logos/cases approved for public use.
+
+## Technical Follow-Ups
+
+- connect form submission backend or CRM;
+- implement mobile navigation menu;
+- add privacy/legal pages before production launch;
+- review deployment provider;
+- review dependency audit before launch.
