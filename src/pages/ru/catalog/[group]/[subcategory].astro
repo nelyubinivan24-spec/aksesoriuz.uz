@@ -29,7 +29,6 @@ const title = legacyLink?.label.ru ?? item.title;
 const relevantFamilies = legacyProductFamilies.filter((family) => item.productFamilyIds.includes(family.id));
 const legacyRecords = legacyProductMigration.filter((record) => item.productFamilyIds.includes(record.familyId));
 const modeledProducts = products.filter((product) => product.categoryIds.includes(group.id) && item.productFamilyIds.includes(product.family));
-const backlogCount = legacyRecords.filter((record) => record.migrationDecision === "family-reference-backlog").length;
 const briefHref = `/ru/contact/?intent=subcategory-brief&category=${group.id}&subcategory=${item.id}`;
 ---
 
@@ -41,26 +40,28 @@ const briefHref = `/ru/contact/?intent=subcategory-brief&category=${group.id}&su
   description={`B2B направление ${title}: референсы изделий, материалы, брендирование и проектный бриф для расчета.`}
 >
   <section class="relative overflow-hidden bg-ink-950 py-16 text-white md:py-20">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(28,120,103,0.35),transparent_34%),linear-gradient(135deg,#111827,#0f2f2a)]"></div>
+    <img class="absolute inset-0 h-full w-full object-cover opacity-40" src={group.image.src} alt={group.image.alt.ru} loading="eager" decoding="async" />
+    <div class="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/88 to-ink-950/35"></div>
+    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink-950 to-transparent"></div>
     <div class="container-page relative">
       <a class="inline-flex text-sm font-semibold text-brass-500 transition hover:text-white" href={`/ru/catalog/${group.slug.ru}/`}>Назад в раздел</a>
-      <p class="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/62">B2B product direction</p>
+      <p class="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/62">B2B-направление продукции</p>
       <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-white">{title}</h1>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-white/74">
-        Направление сохранено из текущего сайта и превращено в landing page для подбора референсов, обсуждения материалов, брендирования, тиража и сроков.
+        Выберите ориентир для будущей партии, обсудите материалы, брендирование, тираж и сроки с менеджером.
       </p>
       <div class="mt-8 grid gap-3 sm:grid-cols-3">
         <div class="rounded-md border border-white/12 bg-white/10 p-4">
           <p class="text-2xl font-semibold text-white">{legacyRecords.length}</p>
-          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">старых URL</p>
+          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">позиций в направлении</p>
         </div>
         <div class="rounded-md border border-white/12 bg-white/10 p-4">
           <p class="text-2xl font-semibold text-white">{modeledProducts.length}</p>
-          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">референсов</p>
+          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">готовых референсов</p>
         </div>
         <div class="rounded-md border border-white/12 bg-white/10 p-4">
-          <p class="text-2xl font-semibold text-white">{backlogCount}</p>
-          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">в backlog</p>
+          <p class="text-2xl font-semibold text-white">B2B</p>
+          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">расчет под тираж</p>
         </div>
       </div>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -73,7 +74,7 @@ const briefHref = `/ru/contact/?intent=subcategory-brief&category=${group.id}&su
   <section class="py-16">
     <div class="container-page grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Coverage map</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Состав направления</p>
         <h2 class="mt-3 text-3xl font-semibold text-ink-950">Что покрывает направление</h2>
         <p class="mt-4 text-base leading-7 text-steel-600">Это не страница покупки. Она помогает выбрать ориентир для переговоров и передает менеджеру правильный контекст проекта.</p>
       </div>
@@ -81,8 +82,8 @@ const briefHref = `/ru/contact/?intent=subcategory-brief&category=${group.id}&su
         {relevantFamilies.map((family) => (
           <div class="rounded-md border border-line-200 bg-white p-5">
             <p class="text-sm font-semibold text-ink-950">{family.title}</p>
-            <p class="mt-3 text-xs leading-5 text-steel-600">SKU families: {family.skuCodes.join(", ")}</p>
-            <p class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">{legacyProductMigration.filter((record) => record.familyId === family.id).length} старых URL в manifest</p>
+            <p class="mt-3 text-xs leading-5 text-steel-600">Кодовые серии: {family.skuCodes.join(", ")}</p>
+            <p class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">{legacyProductMigration.filter((record) => record.familyId === family.id).length} позиций для подбора</p>
           </div>
         ))}
       </div>
@@ -93,10 +94,10 @@ const briefHref = `/ru/contact/?intent=subcategory-brief&category=${group.id}&su
     <div class="container-page">
       <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
         <div>
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Reference items</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Примеры изделий</p>
           <h2 class="mt-3 text-3xl font-semibold text-ink-950">Референсы для обсуждения</h2>
         </div>
-        <p class="text-base leading-7 text-steel-600">Пока финальные карточки не утверждены, показываем доступные референсы из текущей базы и сохраняем остальные старые URL в migration backlog.</p>
+        <p class="text-base leading-7 text-steel-600">Пока финальные карточки не утверждены, используем доступные примеры из текущей базы как ориентиры для расчета, образца и переговоров.</p>
       </div>
       {modeledProducts.length > 0 ? (
         <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -114,7 +115,7 @@ const briefHref = `/ru/contact/?intent=subcategory-brief&category=${group.id}&su
   <section class="py-16">
     <div class="container-page grid gap-8 rounded-md bg-ink-950 p-8 text-white md:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brass-500">Project brief</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brass-500">Проектный бриф</p>
         <h2 class="mt-3 text-3xl font-semibold text-white">Нужен расчет по этому направлению?</h2>
         <p class="mt-4 max-w-3xl text-base leading-7 text-white/70">Отправьте ориентир, примерный тираж, материалы, логотип и сроки. Менеджер уточнит детали и подготовит расчет или предложение по образцу.</p>
       </div>

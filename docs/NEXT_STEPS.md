@@ -2,7 +2,7 @@
 
 ## Current Status
 
-Completed through Stage 14:
+Completed through Stage 14.1:
 
 - strategy and audience direction;
 - conversion architecture;
@@ -21,7 +21,8 @@ Completed through Stage 14:
 - SKU family taxonomy;
 - original subcategory coverage data;
 - dynamic subcategory landing pages for RU and EN;
-- catalog group navigation upgraded from preserved slugs to visible B2B landing pages.
+- catalog group navigation upgraded from preserved slugs to visible B2B landing pages;
+- public UX cleanup for Russian pages, language switch clarity, and removal of internal migration wording from visible client screens.
 
 ## Immediate Next Stage
 

@@ -14,11 +14,11 @@ const otherLocale = alternateLocale(locale);
       <span class="grid h-11 w-11 place-items-center rounded-md bg-ink-950 text-sm font-bold text-white shadow-sm">A</span>
       <span class="grid">
         <span class="text-lg leading-tight tracking-normal">Aksessoriuz</span>
-        <span class="hidden text-[11px] font-medium uppercase tracking-[0.16em] text-steel-600 sm:block">Custom production</span>
+        <span class="hidden text-[11px] font-medium uppercase tracking-[0.16em] text-steel-600 sm:block">{locale === "ru" ? "Производство под бренд" : "Custom production"}</span>
       </span>
     </a>
 
-    <nav class="hidden items-center gap-6 text-sm font-medium text-graphite-800 lg:flex" aria-label="Main navigation">
+    <nav class="hidden items-center gap-6 text-sm font-medium text-graphite-800 lg:flex" aria-label={locale === "ru" ? "Основная навигация" : "Main navigation"}>
       {mainNav.map((item) => (
         <a class="transition hover:text-emerald-700" href={item.href[locale]}>{item.label[locale]}</a>
       ))}
@@ -28,13 +28,15 @@ const otherLocale = alternateLocale(locale);
       <a class="hidden text-sm font-medium text-graphite-800 transition hover:text-emerald-700 md:inline-flex" href={`tel:${site.contacts.phonePrimary}`}>
         {site.contacts.phonePrimaryLabel}
       </a>
-      <a class="rounded-md border border-line-200 px-3 py-2 text-sm font-medium text-graphite-800 transition hover:border-emerald-700 hover:text-emerald-700" href={`/${otherLocale}/`} aria-label={t.language}>
-        {otherLocale.toUpperCase()}
+      <a class="inline-flex min-h-10 items-center gap-2 rounded-md border border-line-200 px-3 text-sm font-medium text-graphite-800 transition hover:border-emerald-700 hover:text-emerald-700" href={`/${otherLocale}/`} aria-label={t.language}>
+        <span class={locale === "ru" ? "font-semibold text-ink-950" : "text-steel-500"}>RU</span>
+        <span class="text-line-200">/</span>
+        <span class={locale === "en" ? "font-semibold text-ink-950" : "text-steel-500"}>EN</span>
       </a>
       <a class="hidden rounded-md bg-emerald-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-600 md:inline-flex" href={`/${locale}/contact/?intent=quote`}>
         {t.requestQuote}
       </a>
-      <button class="inline-flex h-11 w-11 items-center justify-center rounded-md border border-line-200 text-ink-950 lg:hidden" type="button" aria-label="Open menu">
+      <button class="inline-flex h-11 w-11 items-center justify-center rounded-md border border-line-200 text-ink-950 lg:hidden" type="button" aria-label={locale === "ru" ? "Открыть меню" : "Open menu"}>
         <span class="h-0.5 w-5 bg-current shadow-[0_6px_0_current,0_-6px_0_current]"></span>
       </button>
     </div>

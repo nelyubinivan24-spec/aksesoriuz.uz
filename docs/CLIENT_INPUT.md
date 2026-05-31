@@ -263,3 +263,14 @@ Implication:
 - catalog group pages should lead to subcategory landing pages, not directly to contact forms;
 - each subcategory should support project brief conversion and preserve current-site traceability;
 - the next product-level step should address backlog product records from the migration manifest.
+
+## 2026-05-31: Stage 14.1 UX Cleanup Approved
+
+The client approved the intermediate cleanup after reporting confusion about what page was being viewed and where the real rebuilt site state was.
+
+Implication:
+
+- public pages should not expose internal migration terms such as backlog, manifest, or legacy URLs;
+- Russian pages should use Russian-facing section labels rather than English design-system labels;
+- the language switch should make the active Russian interface clearer;
+- subcategory pages should visually feel like premium B2B pages, not technical coverage reports.
