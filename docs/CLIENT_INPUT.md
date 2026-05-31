@@ -288,3 +288,21 @@ Implication:
 - all public copy should be written as live business communication;
 - development, migration, and staging language belongs only in internal docs and code;
 - product and catalog pages should talk about production, materials, branding, references, samples, and project calculation.
+
+## 2026-05-31: Restart Audit Approved
+
+The client rejected the current public direction as the main path and approved a restart-audit before further implementation.
+
+Client concern:
+
+- the site structure is disconnected from the business idea and the original website;
+- work should not continue as one-line fixes;
+- the site must be professional from marketing, UX, UI, design, and B2B conversion perspectives;
+- exposing internal project language on public pages is a critical error.
+
+Implication:
+
+- treat the current implementation as a draft technical foundation, not as the accepted public design direction;
+- keep useful technical and original-site inventory assets;
+- rebuild public structure, homepage, catalog, product cards, category pages, services, industries, and proof pages through the restart plan;
+- require forbidden-language scans and browser checks before each public-stage approval.
