@@ -1,0 +1,57 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { site } from "@data/site";
+
+const facts = [
+  { value: "2013", label: "год начала работы компании" },
+  { value: "12+", label: "лет опыта указано на текущем сайте" },
+  { value: "1 500+", label: "довольных клиентов указано на текущем сайте" }
+];
+---
+
+<BaseLayout locale="ru" path="/ru/about/" pathWithoutLocale="about/" title="О компании | Aksessoriuz" description="Aksessoriuz производит бизнес-сувениры, подарочную продукцию, аксессуары для офисов, ресторанов и отелей в Узбекистане.">
+  <section class="bg-mist-100 py-16">
+    <div class="container-page">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Company</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink-950 md:text-5xl">Aksessoriuz</h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">
+        Компания с 2013 года занимается изготовлением бизнес-сувениров, подарочной продукции, аксессуаров для офисов, ресторанов и гостиниц среднего и премиального сегмента в Узбекистане.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <h2 class="text-3xl font-semibold text-ink-950">Факты для доверия</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">Публичные показатели текущего сайта сохранены как основа, но перед финальным запуском их нужно подтвердить и обновить.</p>
+      </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        {facts.map((fact) => (
+          <article class="rounded-md border border-line-200 bg-white p-5">
+            <span class="block text-3xl font-semibold text-ink-950">{fact.value}</span>
+            <span class="mt-2 block text-sm leading-6 text-steel-600">{fact.label}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-mist-100 py-16">
+    <div class="container-page grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="text-3xl font-semibold text-ink-950">Что производим</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">Меню, папки, упаковку, бизнес-наборы, сувенирную продукцию, униформу и брендированные детали для клиентского сервиса.</p>
+      </div>
+      <div>
+        <h2 class="text-3xl font-semibold text-ink-950">Контакты</h2>
+        <div class="mt-4 grid gap-2 text-sm text-graphite-800">
+          <a href={`tel:${site.contacts.phonePrimary}`}>{site.contacts.phonePrimaryLabel}</a>
+          <a href={`tel:${site.contacts.phoneSecondary}`}>{site.contacts.phoneSecondaryLabel}</a>
+          <a href={`mailto:${site.contacts.email}`}>{site.contacts.email}</a>
+          <p>{site.contacts.address.ru}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

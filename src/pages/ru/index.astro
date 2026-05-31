@@ -2,27 +2,7 @@
 import ProductGroupCard from "@components/ProductGroupCard.astro";
 import QuoteForm from "@components/QuoteForm";
 import BaseLayout from "@layouts/BaseLayout.astro";
-
-const groups = [
-  {
-    title: "Для ресторанов и кафе",
-    description: "Меню, чекхолдеры, тейбл-тенты, резервы и детали сервиса под бренд заведения.",
-    href: "/ru/catalog/restaurant-accessories/",
-    tags: ["Меню", "Чекхолдеры", "Плейсметы"]
-  },
-  {
-    title: "Упаковка и сувениры",
-    description: "Брендированные коробки, подарочные наборы и презентационная упаковка.",
-    href: "/ru/catalog/packaging-souvenirs/",
-    tags: ["Коробки", "Пакеты", "Подарки"]
-  },
-  {
-    title: "Бизнес-продукция",
-    description: "Ежедневники, папки, бизнес-наборы, картхолдеры и корпоративные подарки.",
-    href: "/ru/catalog/business-products/",
-    tags: ["Наборы", "Папки", "Ежедневники"]
-  }
-];
+import { capabilities, catalogGroups } from "@data/catalog";
 ---
 
 <BaseLayout
@@ -54,11 +34,36 @@ const groups = [
   <section class="py-16 md:py-24">
     <div class="container-page">
       <div class="max-w-2xl">
-        <h2 class="text-3xl font-semibold text-ink-950">Выберите направление</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">Структура сайта поддерживает поиск по типу бизнеса, продукту или технологии производства.</p>
+        <h2 class="text-3xl font-semibold text-ink-950">Полная структура продукции</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">Сохраняем охват текущего сайта: ресторанные и гостиничные аксессуары, бизнес-продукцию, упаковку, униформу и производственные услуги.</p>
       </div>
-      <div class="mt-10 grid gap-5 md:grid-cols-3">
-        {groups.map((group) => <ProductGroupCard {...group} />)}
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {catalogGroups.map((group) => (
+          <ProductGroupCard
+            title={group.title.ru}
+            description={group.description.ru}
+            href={`/ru/catalog/${group.slug.ru}/`}
+            tags={group.tags.map((tag) => tag.ru)}
+            ctaLabel="Смотреть направление"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-mist-100 py-16 md:py-24">
+    <div class="container-page">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-semibold text-ink-950">Возможности производства</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">В новом сайте сохраняем все service/capability направления текущего сайта и связываем их с товарами.</p>
+      </div>
+      <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {capabilities.map((item) => (
+          <a class="rounded-md border border-line-200 bg-white p-5 transition hover:border-emerald-700" href={`/ru/services/${item.slug.ru}/`}>
+            <h3 class="text-lg font-semibold text-ink-950">{item.title.ru}</h3>
+            <p class="mt-2 text-sm leading-6 text-steel-600">{item.description.ru}</p>
+          </a>
+        ))}
       </div>
     </div>
   </section>

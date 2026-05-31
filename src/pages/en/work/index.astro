@@ -1,0 +1,43 @@
+---
+import QuoteForm from "@components/QuoteForm";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const proofBlocks = [
+  {
+    title: "Clients",
+    description: "This section will collect logos, industries, and publicly approved collaboration proof."
+  },
+  {
+    title: "Cases",
+    description: "Each project will describe the task, product, materials, technology, quantity, and result."
+  },
+  {
+    title: "Production",
+    description: "Process, material, and finished-batch photography should strengthen trust in quality and timing."
+  }
+];
+---
+
+<BaseLayout locale="en" path="/en/work/" pathWithoutLocale="work/" title="Work and clients | Aksessoriuz" description="Future Aksessoriuz work, client, and case section for trust and conversion.">
+  <section class="bg-mist-100 py-16">
+    <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Proof</p>
+        <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink-950 md:text-5xl">Work and clients</h1>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">This section will become the site's proof layer: real products, clients, cases, and production details. For now it is prepared as a route for the next content stage.</p>
+      </div>
+      <QuoteForm client:idle locale="en" source="work_page" />
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-page grid gap-4 md:grid-cols-3">
+      {proofBlocks.map((block) => (
+        <article class="rounded-md border border-line-200 bg-white p-5">
+          <h2 class="text-lg font-semibold text-ink-950">{block.title}</h2>
+          <p class="mt-2 text-sm leading-6 text-steel-600">{block.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,80 @@
+---
+import ProductGroupCard from "@components/ProductGroupCard.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { catalogGroups } from "@data/catalog";
+
+const industries = [
+  {
+    title: "Restaurants and cafes",
+    description: "Menus, check holders, reserved signs, table tents, placemats, napkin holders, and wooden tableware.",
+    href: "/en/catalog/restaurant-accessories/"
+  },
+  {
+    title: "Hotels and hospitality",
+    description: "Folders, menus, service accessories, and branded details for rooms and guest areas.",
+    href: "/en/catalog/hotel-accessories/"
+  },
+  {
+    title: "Corporate clients",
+    description: "Business sets, diaries, folders, badges, cardholders, gifts, and accessories.",
+    href: "/en/catalog/business-products/"
+  },
+  {
+    title: "Retail and packaging",
+    description: "Packaging, souvenir products, presentation solutions, and branded sets.",
+    href: "/en/catalog/packaging-souvenirs/"
+  },
+  {
+    title: "Teams and staff",
+    description: "Uniforms, aprons, and textile products for restaurants, hotels, offices, and events.",
+    href: "/en/catalog/uniforms-textile/"
+  },
+  {
+    title: "Production projects",
+    description: "UV printing, laser cutting, embossing, foiling, marking, and carpentry production.",
+    href: "/en/services/"
+  }
+];
+---
+
+<BaseLayout locale="en" path="/en/industries/" pathWithoutLocale="industries/" title="Industries | Aksessoriuz" description="Aksessoriuz solutions for restaurants, hotels, corporate clients, retail, teams, and production projects.">
+  <section class="bg-mist-100 py-16">
+    <div class="container-page">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Industries</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink-950 md:text-5xl">Solutions by business type</h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">The new structure lets buyers start from their business scenario: restaurant, hotel, office, retail, staff, or a specific production technology.</p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-page grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {industries.map((industry) => (
+        <a class="rounded-md border border-line-200 bg-white p-5 transition hover:border-emerald-700" href={industry.href}>
+          <h2 class="text-lg font-semibold text-ink-950">{industry.title}</h2>
+          <p class="mt-2 text-sm leading-6 text-steel-600">{industry.description}</p>
+          <span class="mt-4 inline-flex text-sm font-semibold text-emerald-700">View solutions</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-mist-100 py-16">
+    <div class="container-page">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-semibold text-ink-950">The catalog stays universal</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">The same product can appear in multiple scenarios when it is relevant to different buyers.</p>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {catalogGroups.map((group) => (
+          <ProductGroupCard
+            title={group.title.en}
+            description={group.description.en}
+            href={`/en/catalog/${group.slug.en}/`}
+            tags={group.tags.map((tag) => tag.en)}
+            ctaLabel="Open category"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

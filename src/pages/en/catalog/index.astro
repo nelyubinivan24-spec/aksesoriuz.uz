@@ -1,25 +1,27 @@
 ---
 import ProductGroupCard from "@components/ProductGroupCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-
-const categories = [
-  { title: "Restaurant accessories", description: "Menu covers, check holders, table tents, and service accessories.", href: "/en/catalog/restaurant-accessories/", tags: ["HoReCA", "Service", "Logo"] },
-  { title: "Hotel accessories", description: "Guest folders, room accessories, key holders, and branded details.", href: "/en/catalog/hotel-accessories/", tags: ["Hotels", "Rooms", "Reception"] },
-  { title: "Business products", description: "Corporate gifts, diaries, folders, and business sets.", href: "/en/catalog/business-products/", tags: ["B2B", "Gifts", "Office"] },
-  { title: "Packaging", description: "Boxes, bags, and presentation packaging for brands.", href: "/en/catalog/packaging-souvenirs/", tags: ["Retail", "Gifts", "Branding"] }
-];
+import { catalogGroups } from "@data/catalog";
 ---
 
 <BaseLayout locale="en" path="/en/catalog/" pathWithoutLocale="catalog/" title="Branded product catalog | Aksessoriuz" description="Catalog of branded products, packaging, accessories, uniforms, and production services by Aksessoriuz.">
   <section class="bg-mist-100 py-16">
     <div class="container-page">
       <h1 class="max-w-3xl text-4xl font-semibold text-ink-950">Product catalog</h1>
-      <p class="mt-5 max-w-2xl text-lg leading-8 text-steel-600">Browse by industry, product type, material, or production technology. Product cards are quote-first, not fake checkout flows.</p>
+      <p class="mt-5 max-w-2xl text-lg leading-8 text-steel-600">Browse by industry, product type, material, or production technology. The coverage follows the current website and will expand with new product cards.</p>
     </div>
   </section>
   <section class="py-16">
-    <div class="container-page grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-      {categories.map((category) => <ProductGroupCard {...category} />)}
+    <div class="container-page grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {catalogGroups.map((category) => (
+        <ProductGroupCard
+          title={category.title.en}
+          description={category.description.en}
+          href={`/en/catalog/${category.slug.en}/`}
+          tags={category.tags.map((tag) => tag.en)}
+          ctaLabel="Open category"
+        />
+      ))}
     </div>
   </section>
 </BaseLayout>

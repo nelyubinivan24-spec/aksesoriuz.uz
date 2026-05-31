@@ -1,0 +1,72 @@
+---
+import ProductGroupCard from "@components/ProductGroupCard.astro";
+import QuoteForm from "@components/QuoteForm";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { capabilities, catalogGroups } from "@data/catalog";
+
+export function getStaticPaths() {
+  return capabilities.map((service) => ({
+    params: { slug: service.slug.en },
+    props: { service }
+  }));
+}
+
+const { service } = Astro.props;
+const relatedGroups = catalogGroups.filter((group) => group.id !== "production-services").slice(0, 5);
+---
+
+<BaseLayout
+  locale="en"
+  path={`/en/services/${service.slug.en}/`}
+  pathWithoutLocale={`services/${service.slug.en}/`}
+  title={`${service.title.en} | Aksessoriuz`}
+  description={service.description.en}
+>
+  <section class="bg-mist-100 py-16 md:py-20">
+    <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Production capability</p>
+        <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink-950 md:text-5xl">{service.title.en}</h1>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">{service.description.en}</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={`/en/contact/?intent=quote&service=${service.slug.en}`}>Request calculation</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-line-200 bg-white px-5 text-sm font-semibold text-ink-950 transition hover:border-emerald-700" href="/en/catalog/">View products</a>
+        </div>
+      </div>
+      <QuoteForm client:idle locale="en" source={`service_${service.slug.en}`} />
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-page grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+      <div>
+        <h2 class="text-3xl font-semibold text-ink-950">Where it is used</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">
+          This service is part of the catalog as a production capability. It can be used for product customization, branded batches, and special projects.
+        </p>
+      </div>
+      <div class="grid gap-5 md:grid-cols-2">
+        {relatedGroups.map((group) => (
+          <ProductGroupCard
+            title={group.title.en}
+            description={group.description.en}
+            href={`/en/catalog/${group.slug.en}/`}
+            tags={group.tags.map((tag) => tag.en)}
+            ctaLabel="Related products"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-mist-100 py-16">
+    <div class="container-page">
+      <div class="rounded-md border border-line-200 bg-white p-6">
+        <h2 class="text-2xl font-semibold text-ink-950">Current-site preservation</h2>
+        <p class="mt-3 max-w-3xl text-sm leading-6 text-steel-600">
+          This direction was moved from the current Aksessoriuz structure and preserved as a standalone landing page. The original URL is kept in taxonomy for migration control and future SEO redirects.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

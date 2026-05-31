@@ -197,3 +197,20 @@ Approved design direction:
 Implication:
 
 Stage 7 should translate the approved strategy, UX, and design system into a technical Astro foundation with reusable layouts, components, tokens, SEO helpers, and route structure.
+
+## 2026-05-31: Stage 8 Catalog Coverage Confirmation
+
+The client explicitly confirmed that the rebuilt site must not lose what exists on the current website.
+
+Client instruction:
+
+- continue development;
+- keep the current site's product and capability coverage in mind;
+- make the product and capability list as complete as the original site.
+
+Implication:
+
+- The rebuilt catalog must preserve all current commercial groups and subgroups.
+- Current service/capability pages must be represented in the new structure.
+- Product cards can be redesigned and replaced later, but the taxonomy should already have traceability to the current site.
+- Missing product/card details should be treated as a content backlog, not as permission to remove categories.

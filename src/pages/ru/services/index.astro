@@ -1,0 +1,75 @@
+---
+import ProductGroupCard from "@components/ProductGroupCard.astro";
+import QuoteForm from "@components/QuoteForm";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { capabilities, catalogGroups } from "@data/catalog";
+---
+
+<BaseLayout
+  locale="ru"
+  path="/ru/services/"
+  pathWithoutLocale="services/"
+  title="Производственные услуги | Aksessoriuz"
+  description="УФ-печать, полиграфия, фольгирование, лазерная резка и гравировка, тиснение, маркировка, food съемка, сувенирная продукция, униформа и столярное производство."
+>
+  <section class="bg-mist-100 py-16 md:py-20">
+    <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Production capabilities</p>
+        <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink-950 md:text-5xl">Производственные услуги</h1>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">
+          Сохраняем полный список возможностей текущего сайта и связываем каждую технологию с продукцией, материалами и заявкой на расчет.
+        </p>
+        <div class="mt-8 grid gap-3 text-sm text-graphite-800 sm:grid-cols-2">
+          <div class="rounded-md border border-line-200 bg-white p-4">
+            <span class="block text-2xl font-semibold text-ink-950">{capabilities.length}</span>
+            <span class="mt-1 block text-steel-600">направлений услуг</span>
+          </div>
+          <div class="rounded-md border border-line-200 bg-white p-4">
+            <span class="block text-2xl font-semibold text-ink-950">{catalogGroups.length}</span>
+            <span class="mt-1 block text-steel-600">связанных групп продукции</span>
+          </div>
+        </div>
+      </div>
+      <QuoteForm client:idle locale="ru" source="services_index" />
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-page">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-semibold text-ink-950">Все возможности</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">Этот список повторяет коммерческий охват текущего сайта: услуги не удалены, а переведены в новую структуру.</p>
+      </div>
+      <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {capabilities.map((item) => (
+          <a class="rounded-md border border-line-200 bg-white p-5 transition hover:border-emerald-700" href={`/ru/services/${item.slug.ru}/`}>
+            <h3 class="text-lg font-semibold text-ink-950">{item.title.ru}</h3>
+            <p class="mt-2 text-sm leading-6 text-steel-600">{item.description.ru}</p>
+            <span class="mt-4 inline-flex text-sm font-semibold text-emerald-700">Подробнее</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-mist-100 py-16">
+    <div class="container-page">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-semibold text-ink-950">Связь услуг с продукцией</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">Покупатель сможет прийти как через продукт, так и через технологию: например, меню, папки, упаковку, униформу или лазерную гравировку.</p>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {catalogGroups.map((group) => (
+          <ProductGroupCard
+            title={group.title.ru}
+            description={group.description.ru}
+            href={`/ru/catalog/${group.slug.ru}/`}
+            tags={group.tags.map((tag) => tag.ru)}
+            ctaLabel="Смотреть продукцию"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -56,6 +56,22 @@ Routes:
 - `/en/`
 - `/ru/catalog/`
 - `/en/catalog/`
+- `/ru/catalog/{slug}/`
+- `/en/catalog/{slug}/`
+- `/ru/services/`
+- `/en/services/`
+- `/ru/services/{slug}/`
+- `/en/services/{slug}/`
+- `/ru/industries/`
+- `/en/industries/`
+- `/ru/work/`
+- `/en/work/`
+- `/ru/clients/`
+- `/en/clients/`
+- `/ru/about/`
+- `/en/about/`
+- `/ru/faq/`
+- `/en/faq/`
 - `/ru/contact/`
 - `/en/contact/`
 - `/robots.txt`
@@ -93,7 +109,7 @@ Expected result:
 - Replace placeholder visual blocks with real product imagery.
 - Connect form submission backend or CRM later.
 - Add real product/category data after product cards are provided.
-- Add route pages for industries, services, work, about, FAQ, privacy, and product details.
+- Add product detail pages after product cards are provided.
+- Add privacy and legal pages before production launch.
 - Decide deployment provider.
 - Review `npm audit` moderate findings before launch; do not use forced breaking fixes blindly.
-

@@ -1,0 +1,43 @@
+---
+import QuoteForm from "@components/QuoteForm";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const proofBlocks = [
+  {
+    title: "Клиенты",
+    description: "Раздел будет собирать логотипы, отрасли и публично разрешенные подтверждения сотрудничества."
+  },
+  {
+    title: "Кейсы",
+    description: "Для каждого проекта будут фиксироваться задача, продукт, материалы, технология, тираж и результат."
+  },
+  {
+    title: "Производство",
+    description: "Фотографии процесса, материалов и готовых партий должны усиливать доверие к качеству и срокам."
+  }
+];
+---
+
+<BaseLayout locale="ru" path="/ru/work/" pathWithoutLocale="work/" title="Работы и клиенты | Aksessoriuz" description="Будущий раздел работ, клиентов и кейсов Aksessoriuz для усиления доверия и конверсии.">
+  <section class="bg-mist-100 py-16">
+    <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Proof</p>
+        <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink-950 md:text-5xl">Работы и клиенты</h1>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">Этот раздел станет доказательной базой сайта: реальные изделия, клиенты, кейсы и производственные детали. Пока он подготовлен как маршрут для следующего этапа контента.</p>
+      </div>
+      <QuoteForm client:idle locale="ru" source="work_page" />
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-page grid gap-4 md:grid-cols-3">
+      {proofBlocks.map((block) => (
+        <article class="rounded-md border border-line-200 bg-white p-5">
+          <h2 class="text-lg font-semibold text-ink-950">{block.title}</h2>
+          <p class="mt-2 text-sm leading-6 text-steel-600">{block.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -148,24 +148,28 @@ Index:
 Service pages:
 
 - `/ru/services/uv-printing/`
+- `/ru/services/printing/`
+- `/ru/services/foiling/`
 - `/ru/services/laser-cutting-engraving/`
 - `/ru/services/embossing/`
-- `/ru/services/foiling/`
-- `/ru/services/printing/`
 - `/ru/services/marking/`
 - `/ru/services/food-photography/`
-- `/ru/services/custom-production/`
+- `/ru/services/souvenir-production/`
+- `/ru/services/uniforms-textile/`
+- `/ru/services/carpentry-production/`
 
 English:
 
 - `/en/services/uv-printing/`
+- `/en/services/printing/`
+- `/en/services/foiling/`
 - `/en/services/laser-cutting-engraving/`
 - `/en/services/embossing/`
-- `/en/services/foiling/`
-- `/en/services/printing/`
 - `/en/services/marking/`
 - `/en/services/food-photography/`
-- `/en/services/custom-production/`
+- `/en/services/souvenir-production/`
+- `/en/services/uniforms-textile/`
+- `/en/services/carpentry-production/`
 
 Purpose:
 
@@ -319,4 +323,3 @@ This sitemap is accepted when:
 - quote request paths are present across page types;
 - language structure is clear;
 - URLs are stable enough for implementation.
-

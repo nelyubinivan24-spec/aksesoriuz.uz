@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const faqs = [
+  {
+    question: "How do I request a calculation?",
+    answer: "Send a request through the form, phone, or messenger. For an accurate quote, share the product, quantity, material, logo, and desired timing."
+  },
+  {
+    question: "Can products be made with a logo?",
+    answer: "Yes. The structure keeps UV printing, laser cutting and engraving, embossing, foiling, printing, and marking."
+  },
+  {
+    question: "Is there a price catalog?",
+    answer: "Pricing depends on material, quantity, size, and branding. The price-catalog format will be decided in a later stage."
+  },
+  {
+    question: "Which product categories are available?",
+    answer: "Restaurant and hotel accessories, business products, packaging, souvenir products, uniforms, textile, and production services."
+  },
+  {
+    question: "Can several product types be requested together?",
+    answer: "Yes. The new site is planned around an inquiry list instead of a regular cart, which fits B2B project calculation."
+  }
+];
+---
+
+<BaseLayout locale="en" path="/en/faq/" pathWithoutLocale="faq/" title="FAQ | Aksessoriuz" description="Answers to common questions about calculation, branding, catalog, product categories, and Aksessoriuz orders.">
+  <section class="bg-mist-100 py-16">
+    <div class="container-page">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">FAQ</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink-950 md:text-5xl">Frequently asked questions</h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-steel-600">This section is preserved from the current site's logic and will expand with real client questions.</p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-page max-w-4xl">
+      <div class="grid gap-4">
+        {faqs.map((item) => (
+          <article class="rounded-md border border-line-200 bg-white p-5">
+            <h2 class="text-lg font-semibold text-ink-950">{item.question}</h2>
+            <p class="mt-2 text-sm leading-6 text-steel-600">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

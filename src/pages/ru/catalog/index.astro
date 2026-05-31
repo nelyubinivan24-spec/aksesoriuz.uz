@@ -1,25 +1,27 @@
 ---
 import ProductGroupCard from "@components/ProductGroupCard.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-
-const categories = [
-  { title: "Для ресторанов и кафе", description: "Меню, чекхолдеры, тейбл-тенты и сервисные аксессуары.", href: "/ru/catalog/restaurant-accessories/", tags: ["HoReCA", "Сервис", "Логотип"] },
-  { title: "Для отелей", description: "Папки гостя, аксессуары номера, ключницы и брендированные детали.", href: "/ru/catalog/hotel-accessories/", tags: ["Отели", "Номера", "Ресепшен"] },
-  { title: "Бизнес-продукция", description: "Корпоративные подарки, ежедневники, папки и бизнес-наборы.", href: "/ru/catalog/business-products/", tags: ["B2B", "Подарки", "Офис"] },
-  { title: "Упаковка", description: "Коробки, пакеты и презентационная упаковка под бренд.", href: "/ru/catalog/packaging-souvenirs/", tags: ["Ритейл", "Подарки", "Брендинг"] }
-];
+import { catalogGroups } from "@data/catalog";
 ---
 
 <BaseLayout locale="ru" path="/ru/catalog/" pathWithoutLocale="catalog/" title="Каталог брендированной продукции | Aksessoriuz" description="Каталог брендированной продукции, упаковки, аксессуаров, униформы и производственных услуг Aksessoriuz.">
   <section class="bg-mist-100 py-16">
     <div class="container-page">
       <h1 class="max-w-3xl text-4xl font-semibold text-ink-950">Каталог продукции</h1>
-      <p class="mt-5 max-w-2xl text-lg leading-8 text-steel-600">Выбирайте по отрасли, типу продукта, материалу или технологии. Все карточки будут вести к расчету, а не к фиктивной покупке.</p>
+      <p class="mt-5 max-w-2xl text-lg leading-8 text-steel-600">Выбирайте по отрасли, типу продукта, материалу или технологии. Список направлений сохранен по текущему сайту и будет расширяться новыми карточками.</p>
     </div>
   </section>
   <section class="py-16">
-    <div class="container-page grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-      {categories.map((category) => <ProductGroupCard {...category} />)}
+    <div class="container-page grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {catalogGroups.map((category) => (
+        <ProductGroupCard
+          title={category.title.ru}
+          description={category.description.ru}
+          href={`/ru/catalog/${category.slug.ru}/`}
+          tags={category.tags.map((tag) => tag.ru)}
+          ctaLabel="Открыть категорию"
+        />
+      ))}
     </div>
   </section>
 </BaseLayout>
