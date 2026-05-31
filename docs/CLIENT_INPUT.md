@@ -143,3 +143,18 @@ Approved structure:
 Implication:
 
 Stage 4 should define structured content models that support these routes, catalog groups, SEO fields, quote-first conversion, and future product expansion.
+
+## 2026-05-31: Stage 4 Content Model Approved
+
+The client approved the Stage 4 content model direction.
+
+Approved content model:
+
+- Products, categories, industries, services, materials, branding methods, cases, clients, FAQ, forms, and SEO metadata should be structured data.
+- Product cards should not be manually hardcoded into page templates.
+- Product data should support bilingual content, quote-first conversion, SEO fields, images, materials, branding methods, related products, and related services.
+- New product cards should follow the product input template or spreadsheet columns.
+
+Implication:
+
+Stage 5 wireframes should use modular page sections powered by the structured content model rather than one-off page layouts.
