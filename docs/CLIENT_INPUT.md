@@ -98,7 +98,7 @@ Approved conversion system:
   - Telegram/WhatsApp;
   - phone call;
   - price catalog.
-- Product selection should use an inquiry-list concept rather than a direct checkout cart.
+- Product selection should support project-brief reference context rather than direct purchase mechanics.
 - Mobile version should include sticky actions:
   - call;
   - Telegram/WhatsApp;
@@ -173,7 +173,7 @@ Approved UX structure:
 - Industry pages for business-specific product sets.
 - Service pages for production technology entry points.
 - Work/clients, about, FAQ, and contact pages.
-- Inquiry list concept instead of cart.
+- Project reference selection concept instead of purchase mechanics.
 - Mobile sticky actions and mobile-first forms.
 
 Implication:
@@ -214,3 +214,30 @@ Implication:
 - Current service/capability pages must be represented in the new structure.
 - Product cards can be redesigned and replaced later, but the taxonomy should already have traceability to the current site.
 - Missing product/card details should be treated as a content backlog, not as permission to remove categories.
+
+## 2026-05-31: Stage 11 B2B Business Model Correction
+
+The client clarified that Aksessoriuz is not an online store.
+
+Client instruction:
+
+- the business works in the B2B segment;
+- customers do not buy through self-service purchase mechanics on the website;
+- the purchase cycle goes through direct negotiation, detail clarification, samples, and project calculation.
+
+Implication:
+
+- product cards are reference items, not purchase items;
+- CTAs should lead to project discussion, sample request, calculation request, phone, Telegram, or WhatsApp;
+- the site should avoid self-service purchase language and mechanics;
+- forms should collect project briefs rather than behave like purchase flows.
+
+## 2026-05-31: Stage 12 Inventory Plan Approved
+
+The client approved the next-stage plan to perform a full current-site inventory and coverage map.
+
+Implication:
+
+- Stage 12 should use the current sitemap and site pages as the control source;
+- every current product group, service, and product URL should receive a new-site destination or migration decision;
+- Stage 13 should focus on completing the B2B catalog coverage system before deeper visual polish or integrations.

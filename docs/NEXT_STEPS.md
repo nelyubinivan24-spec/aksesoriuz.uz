@@ -2,7 +2,7 @@
 
 ## Current Status
 
-Completed through Stage 10:
+Completed through Stage 12:
 
 - strategy and audience direction;
 - conversion architecture;
@@ -14,21 +14,24 @@ Completed through Stage 10:
 - current-site catalog and capability preservation;
 - premium homepage and visual upgrade;
 - temporary product-card foundation based on the current site;
-- product detail routes for RU and EN.
+- product detail routes for RU and EN;
+- B2B project brief correction;
+- current-site sitemap inventory and coverage map.
 
 ## Immediate Next Stage
 
-Recommended Stage 11:
+Recommended Stage 13:
 
-B2B project brief and sample-request mechanics.
+Complete B2B catalog coverage system.
 
 Goal:
 
-- remove any e-commerce reading from product CTAs;
-- treat product pages as examples and references for custom production;
-- make forms collect a project brief: item, quantity, material, branding, timeline, and contact;
-- support sample request and project quote paths;
-- prepare form payload structure for backend/CRM integration.
+- add a legacy migration manifest for all 255 original product URLs;
+- map every original SKU family to a canonical product family;
+- create structured subcategory landing-page data;
+- decide whether each original SKU becomes a full page, lightweight reference page, family redirect, or hidden migration record;
+- keep product discovery as B2B reference selection with project brief conversion;
+- prepare redirect and SEO rules before launch.
 
 ## Required Client Inputs
 
@@ -44,5 +47,6 @@ Goal:
 - connect form submission backend or CRM;
 - implement mobile navigation menu;
 - add privacy/legal pages before production launch;
+- define legacy URL redirect strategy;
 - review deployment provider;
 - review dependency audit before launch.

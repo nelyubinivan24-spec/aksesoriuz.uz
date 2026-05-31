@@ -67,17 +67,17 @@ Success message:
 
 Your request has been received. We will contact you to clarify materials, quantity, branding, and timing.
 
-## Form 2: Product Inquiry
+## Form 2: Product Reference Brief
 
 Use on:
 
 - product detail pages;
 - product cards;
-- inquiry list.
+- category reference sections.
 
 Purpose:
 
-Capture interest in a specific product.
+Capture interest in a specific product reference and route it into manager-led project discussion.
 
 Fields:
 
@@ -104,7 +104,7 @@ Required fields:
 
 Submit label:
 
-- Request this product.
+- Discuss this project.
 
 ## Form 3: Sample Request
 
@@ -308,4 +308,3 @@ Before implementation, decide:
 - whether file upload is supported;
 - spam protection method;
 - personal data storage policy.
-

@@ -22,7 +22,7 @@ The site should:
 - explain the offer quickly;
 - let users browse by business type, product type, or production technology;
 - keep quote request actions visible;
-- avoid direct checkout assumptions;
+- avoid direct self-service purchase assumptions;
 - support mobile-first inquiries;
 - show real products and proof early;
 - make product pages useful even without fixed prices;
@@ -247,7 +247,7 @@ Primary CTA:
 
 Goal:
 
-Help users find relevant products and request calculation without checkout complexity.
+Help users find relevant products and request calculation without self-service purchase complexity.
 
 ### Section 1: Catalog Hero
 
@@ -298,7 +298,7 @@ Product card:
 - material tags;
 - branding method tags;
 - CTA: Request calculation;
-- optional: Add to inquiry.
+- optional: Discuss project or request sample.
 
 Empty state:
 
@@ -326,7 +326,7 @@ Options:
 
 Goal:
 
-Turn category browsing into a relevant product inquiry.
+Turn category browsing into a relevant project brief.
 
 Sections:
 
@@ -350,7 +350,7 @@ UX notes:
 
 Goal:
 
-Convert interest in one product into quote request, sample request, or inquiry list addition.
+Convert interest in one product reference into quote request, sample request, or project discussion.
 
 ### Section 1: Product Hero
 
@@ -364,7 +364,7 @@ Layout:
 - branding methods;
 - primary CTA: Request this product;
 - secondary CTA: Order sample;
-- optional: Add to inquiry.
+- optional: Discuss as project reference.
 
 If MOQ or timing unknown:
 
@@ -552,7 +552,7 @@ UX:
 
 Goal:
 
-Make it easy to contact and submit a qualified inquiry.
+Make it easy to contact and submit a qualified project request.
 
 Sections:
 
@@ -565,7 +565,7 @@ Sections:
    - WhatsApp;
    - email;
    - address.
-3. Inquiry form:
+3. Project request form:
    - name;
    - phone;
    - messenger;
@@ -581,33 +581,33 @@ Sections:
    - samples;
    - price catalog.
 
-## Inquiry List Flow
+## Project Reference Flow
 
 Purpose:
 
-Allow users to collect multiple products and request calculation without shopping cart/payment logic.
+Allow users to use one or more product examples as references for a B2B project brief.
 
 Flow:
 
-1. User clicks "Add to inquiry" on product card or product page.
-2. Header/sticky indicator shows inquiry count.
-3. User opens inquiry drawer/page.
-4. User reviews selected products.
-5. User adds quantity/message per product if needed.
-6. User submits one quote request.
+1. User opens a product reference from the catalog.
+2. User chooses project quote, sample request, or direct contact.
+3. Product context is passed into the project brief.
+4. User adds quantity, material, branding, deadline, and message.
+5. User submits one project request.
+6. Manager clarifies details and prepares the calculation or sample discussion.
 
 States:
 
-- empty list:
-  - suggest browsing catalog.
-- list with products:
-  - show product cards and remove buttons.
+- no reference selected:
+  - allow a general project brief.
+- reference selected:
+  - show the product reference and editable project fields.
 - submitted:
   - confirmation and messenger fallback.
 
 Implementation note:
 
-This can be a later interactive feature. Initial version can use "Request this product" without a persistent list if development scope requires phasing.
+Persistent multi-reference selection can be a later interactive feature. The initial version should pass one product/category context directly into the project brief.
 
 ## Mobile UX Rules
 
@@ -665,6 +665,5 @@ Stage 5 is accepted when:
 - each page has primary and secondary CTA logic;
 - mobile navigation and sticky actions are defined;
 - catalog and product browsing support quote-first conversion;
-- inquiry list behavior is defined;
+- project reference behavior is defined;
 - wireframes align with the content model and sitemap.
-

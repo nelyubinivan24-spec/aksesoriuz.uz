@@ -16,13 +16,20 @@ Checked:
 
 - 2026-05-31
 
-Observed RU sitemap:
+Observed sitemap:
 
-- 305 URLs total.
-- 34 category/catalog URLs.
-- 11 service/capability URLs.
-- About 255 product detail URLs detected in the crawl.
+- RU: 305 URLs total.
+- EN: 304 URLs total.
+- RU product URLs detected by SKU/code patterns: 255.
+- EN product URLs detected by SKU/code patterns: 255.
+- RU non-product URLs: 50.
+- EN non-product URLs: 49.
 - Main info pages: home, about, FAQ, contacts, clients.
+- Last observed RU `lastmod` range: 2025-01-15 to 2025-10-25.
+
+Detailed Stage 12 audit:
+
+- `docs/STAGE_12_SITE_INVENTORY.md`
 
 ## Current Main Product Groups
 
@@ -180,6 +187,12 @@ Implemented in the Astro foundation:
 - Dynamic service/capability pages for RU and EN.
 - Industry, work, client, about, FAQ, and contact routes for RU and EN.
 
-Current limitation:
+Current limitation after Stage 12:
 
-- Individual product detail pages from the old sitemap are not migrated yet because the client will provide new product cards. The old product URL count is kept as a migration control point, and every new product card should be mapped to this taxonomy before launch.
+- 32 B2B reference product cards exist in `src/data/products.ts`.
+- The original site has 255 RU product URLs, so product-level coverage is still partial.
+- Every old product URL needs a migration decision before launch:
+  - full product page;
+  - lightweight reference page;
+  - redirect to product family/subcategory;
+  - hidden migration record until final client cards are approved.

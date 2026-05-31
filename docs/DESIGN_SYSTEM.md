@@ -357,13 +357,13 @@ Card content:
 - material tags;
 - branding method tags;
 - primary CTA: Request calculation;
-- secondary: View details or Add to inquiry.
+- secondary: View details, discuss project, or request sample.
 
 States:
 
 - default;
 - hover;
-- selected in inquiry list;
+- selected as a project reference;
 - missing image fallback;
 - loading/skeleton.
 
@@ -472,21 +472,21 @@ Form components:
 
 Quote form should feel quick, not bureaucratic.
 
-## Inquiry List UI
+## Project Reference UI
 
 Components:
 
-- inquiry count badge;
+- reference count badge if multi-reference selection is implemented;
 - drawer or page;
-- selected product row;
+- selected reference row;
 - quantity field;
 - remove action;
-- submit quote form.
+- submit project brief form.
 
 Rules:
 
-- This is not a cart.
-- Use "inquiry" language, not "checkout".
+- This is a B2B project brief helper, not an order interface.
+- Use reference, project, sample, and calculation language.
 - No payment UI.
 
 ## Gallery

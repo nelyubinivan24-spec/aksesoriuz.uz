@@ -185,7 +185,7 @@ Optional but recommended:
 Product page must not require:
 
 - fixed price;
-- direct checkout;
+- direct self-service purchase;
 - online payment.
 
 ## Product Category Model
@@ -533,4 +533,3 @@ The model should be easy to migrate to:
 - spreadsheet-driven import.
 
 Do not rely on framework-only assumptions that would make later CMS migration difficult.
-

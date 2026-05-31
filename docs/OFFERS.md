@@ -157,7 +157,7 @@ Recommended trust signals:
 
 Approved direction:
 
-The primary conversion path should lead to inquiry or quote request, not direct checkout.
+The primary conversion path should lead to project discussion or quote request, not direct self-service purchase.
 
 Recommended implementation:
 

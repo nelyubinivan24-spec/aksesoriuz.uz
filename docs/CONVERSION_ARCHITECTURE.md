@@ -4,7 +4,7 @@
 
 Define how the new website turns visitors into qualified leads.
 
-The site is quote-first, not checkout-first. Most products are custom, price depends on materials, quantity, branding method, deadlines, and production complexity.
+The site is quote-first, not self-service purchase-first. Most products are custom, price depends on materials, quantity, branding method, deadlines, and production complexity.
 
 ## Conversion Strategy
 
@@ -153,10 +153,10 @@ Secondary actions:
 
 - Order sample;
 - Ask about materials;
-- Add to inquiry list;
+- Discuss this reference;
 - View similar products.
 
-Product inquiry should capture:
+Product reference brief should capture:
 
 - product name;
 - product SKU/code if available;
@@ -217,11 +217,11 @@ Secondary actions:
 
 Goal:
 
-Provide the most direct inquiry route.
+Provide the most direct project discussion route.
 
 Primary action:
 
-- Submit inquiry.
+- Submit project brief.
 
 Secondary actions:
 
@@ -250,20 +250,21 @@ Rules:
 - keep labels short;
 - track all clicks as analytics events.
 
-## Inquiry List Option
+## B2B Reference Set Option
 
-For catalog browsing, support an "inquiry list" pattern instead of a shopping cart.
+For catalog browsing, support a reference set pattern.
 
 Purpose:
 
-- user can add multiple products;
-- final action is request calculation;
-- no checkout/payment logic needed.
+- user can mark several product examples as relevant references;
+- final action is a project brief or direct manager discussion;
+- no self-service purchase or payment logic is needed.
 
 Recommended label:
 
-- Add to inquiry
-- Request with this product
+- Discuss this project
+- Request calculation with this reference
+- Request sample
 
 This can be implemented in a later phase if initial catalog scope is large.
 
@@ -281,7 +282,7 @@ Possible implementation:
 Recommended initial approach:
 
 - prepare UI slot for "View price catalog";
-- keep it inactive or route to inquiry until real pricing is available;
+- keep it inactive or route to a project brief until real pricing is available;
 - avoid fake prices.
 
 ## Post-Submission Experience
@@ -320,4 +321,3 @@ Stage 2 is accepted when:
 - analytics events are defined;
 - optional price catalog logic is defined;
 - no conversion path depends on unavailable pricing or undefined MOQ.
-

@@ -349,15 +349,16 @@ Sections:
 6. Related services.
 7. Quote form.
 
-## Inquiry List
+## Project Brief Reference Selection
 
-Instead of a cart, use an inquiry list:
+Instead of self-service purchase mechanics, use B2B reference selection:
 
-- add product to inquiry;
-- continue browsing;
-- submit one calculation request for multiple products.
+- choose one or more relevant product examples;
+- use them as references for manager discussion;
+- submit a project brief with product interest, quantity, material, branding, timeline, and contact details;
+- request a sample when physical quality or material choice matters.
 
-This supports B2B buying without checkout/payment complexity.
+This supports the real B2B buying cycle without self-service purchase mechanics.
 
 ## Category Page Content
 
@@ -381,5 +382,4 @@ Catalog structure is accepted when:
 - users can browse by industry and product type;
 - SEO category pages have clear targets;
 - product pages can support quote-first conversion;
-- no direct checkout assumptions are required.
-
+- no direct self-service purchase assumptions are required.
