@@ -7,17 +7,15 @@
 - Local Git repository initialized.
 - Working branch created: `codex/site-rebuild-foundation`.
 - Initial documentation structure added.
+- GitHub remote connected: `https://github.com/nelyubinivan24-spec/aksesoriuz.uz.git`.
+- Foundation branch pushed to GitHub.
+- Technical stack approved.
 
 ## Pending
 
-- Connect GitHub remote repository.
-- Decide whether to create the first commit locally now or after remote setup.
-- Confirm technical stack before application scaffold.
+- Create pull request manually if GitHub integration permissions remain limited.
+- Continue Stage 1 strategy work.
 
 ## Needed From Client
 
-Provide one of the following:
-
-1. A new empty GitHub repository URL.
-2. Confirmation to continue locally until the remote repository is ready.
-
+Validate the Stage 1 strategic assumptions before UX and page structure are finalized.

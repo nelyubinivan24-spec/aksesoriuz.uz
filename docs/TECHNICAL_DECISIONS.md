@@ -4,7 +4,7 @@ This file records important technical decisions and the reasoning behind them.
 
 ## Decision 001: Static-first architecture
 
-Status: proposed
+Status: accepted
 
 Decision:
 
@@ -19,7 +19,7 @@ Reasoning:
 
 ## Decision 002: Astro + TypeScript + React islands
 
-Status: proposed
+Status: accepted
 
 Decision:
 
@@ -34,7 +34,7 @@ Reasoning:
 
 ## Decision 003: Tailwind CSS with project design tokens
 
-Status: proposed
+Status: accepted
 
 Decision:
 
@@ -46,3 +46,17 @@ Reasoning:
 - Easy component consistency.
 - Allows custom brand tokens rather than generic theme styling.
 
+## Decision 004: GitHub-backed staged delivery
+
+Status: accepted
+
+Decision:
+
+Use GitHub branches and pull requests as the control layer for project stages.
+
+Reasoning:
+
+- The project is long-running and requires clear checkpoints.
+- Strategy, UX, UI, and implementation decisions should remain reviewable.
+- Stage-based branches reduce the risk of mixing unrelated decisions.
+- GitHub history creates an audit trail for the rebuild.

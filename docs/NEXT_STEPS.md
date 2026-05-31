@@ -2,23 +2,26 @@
 
 ## Immediate
 
-1. Connect or create GitHub remote.
-2. Confirm technical stack:
-   - Astro
-   - TypeScript
-   - React islands
-   - Tailwind CSS
-3. Create the first project commit.
+1. Continue Stage 1: Discovery and Strategy.
+2. Validate target audiences and offers with the client.
+3. Approve the initial conversion architecture direction.
+4. Prepare Stage 2 documents after strategy approval.
 
-## After Stage 0
+## Completed Stage 0 Items
 
-Move to Stage 1: Discovery and Strategy.
+- GitHub remote connected.
+- Foundation branch pushed.
+- Technical stack approved:
+  - Astro
+  - TypeScript
+  - React islands
+  - Tailwind CSS
+- Stage-based GitHub workflow approved.
 
-First strategy tasks:
+## Stage 1 Tasks
 
 - Define target audiences.
 - Define business positioning.
 - Define primary conversion actions.
 - Define trust proof points.
 - Build initial competitor/reference review.
-
