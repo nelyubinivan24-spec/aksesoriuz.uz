@@ -84,3 +84,27 @@ Approved structural direction:
 Implication:
 
 Stage 2 should define the conversion system around quote requests, sample requests, brief submission, quick contact, and optional price catalog access.
+
+## 2026-05-31: Stage 2 Conversion Architecture Approved
+
+The client approved the Stage 2 conversion direction.
+
+Approved conversion system:
+
+- Primary conversion: request calculation / quote.
+- Secondary conversions:
+  - sample request;
+  - project brief;
+  - Telegram/WhatsApp;
+  - phone call;
+  - price catalog.
+- Product selection should use an inquiry-list concept rather than a direct checkout cart.
+- Mobile version should include sticky actions:
+  - call;
+  - Telegram/WhatsApp;
+  - request calculation.
+- File and logo exchange can initially be routed through Telegram/WhatsApp until backend and secure upload handling are defined.
+
+Implication:
+
+Stage 3 information architecture should organize pages around the approved conversion system and keep quote request paths visible across homepage, catalog, product, industry, and service pages.
