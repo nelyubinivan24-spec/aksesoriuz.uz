@@ -2,9 +2,8 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { catalogGroups } from "@data/catalog";
 import { getLegacySubcategoriesByGroup } from "@data/catalogCoverage";
-import { legacyProductMigration } from "@data/legacyMigration";
 import ProductCard from "@components/ProductCard.astro";
-import { getProductsByCatalogGroupId } from "@data/products";
+import { getProductCountByFamilyIds, getProductsByCatalogGroupId } from "@data/products";
 
 export function getStaticPaths() {
   return catalogGroups.map((group) => ({
@@ -16,7 +15,7 @@ export function getStaticPaths() {
 const { group } = Astro.props;
 const products = getProductsByCatalogGroupId(group.id);
 const subcategories = getLegacySubcategoriesByGroup(group.id);
-const legacyCount = (familyIds: readonly string[]) => legacyProductMigration.filter((record) => familyIds.includes(record.familyId)).length;
+const publicProductCount = (familyIds: readonly string[]) => getProductCountByFamilyIds(familyIds, group.id);
 const legacyLabel = (legacySlug: string) => group.subcategories.find((item) => item.originalSlug === legacySlug)?.label.ru;
 ---
 
@@ -31,7 +30,7 @@ const legacyLabel = (legacySlug: string) => group.subcategories.find((item) => i
     <img class="absolute inset-0 h-full w-full object-cover opacity-45" src={group.image.src} alt={group.image.alt.ru} loading="eager" decoding="async" />
     <div class="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/82 to-ink-950/30"></div>
     <div class="container-page relative">
-      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brass-500">Направление каталога</p>
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brass-500">Направление продукции</p>
       <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-white">{group.title.ru}</h1>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-white/74">{group.description.ru}</p>
       <div class="mt-8 flex flex-wrap gap-2">
@@ -44,11 +43,11 @@ const legacyLabel = (legacySlug: string) => group.subcategories.find((item) => i
     <div class="container-page">
       <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
         <div>
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Референсы изделий</p>
-          <h2 class="mt-3 text-3xl font-semibold text-ink-950">Примеры изделий для проекта</h2>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Изделия под заказ</p>
+          <h2 class="mt-3 text-3xl font-semibold text-ink-950">Готовые ориентиры для расчета партии</h2>
         </div>
         <p class="text-base leading-7 text-steel-600">
-          Это не интернет-магазин, а B2B-набор ориентиров для проектного расчета. Клиент может выбрать похожее изделие, заказать образец или обсудить индивидуальное исполнение.
+          Выберите близкое изделие, материал и способ брендирования. Менеджер уточнит тираж, конструкцию, сроки и подготовит расчет под задачу вашего бизнеса.
         </p>
       </div>
       <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -60,17 +59,23 @@ const legacyLabel = (legacySlug: string) => group.subcategories.find((item) => i
   <section class="py-16">
     <div class="container-page grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
       <div>
-        <h2 class="text-2xl font-semibold text-ink-950">Направления внутри категории</h2>
-        <p class="mt-4 text-sm leading-6 text-steel-600">Эти направления помогают выбрать тип изделий, посмотреть референсы и отправить проектный бриф.</p>
+        <h2 class="text-2xl font-semibold text-ink-950">Разделы внутри направления</h2>
+        <p class="mt-4 text-sm leading-6 text-steel-600">Эти разделы помогают быстрее выбрать тип изделий, подходящий материал и сценарий расчета.</p>
       </div>
       <div class="grid gap-3 md:grid-cols-2">
-        {subcategories.map((item) => (
-          <a class="rounded-md border border-line-200 bg-white p-4 transition hover:-translate-y-0.5 hover:border-emerald-700 hover:shadow-sm" href={`/ru/catalog/${group.slug.ru}/${item.slug.ru}/`}>
-            <span class="text-sm font-semibold text-ink-950">{legacyLabel(item.legacySlug) ?? item.title}</span>
-            <span class="mt-2 block text-xs leading-5 text-steel-600">Доступно {legacyCount(item.productFamilyIds)} референсных позиций для подбора, расчета партии и обсуждения проекта.</span>
-            <span class="mt-3 inline-flex text-xs font-semibold text-emerald-700">Открыть направление</span>
-          </a>
-        ))}
+        {subcategories.map((item) => {
+          const count = publicProductCount(item.productFamilyIds);
+
+          return (
+            <a class="rounded-md border border-line-200 bg-white p-4 transition hover:-translate-y-0.5 hover:border-emerald-700 hover:shadow-sm" href={`/ru/catalog/${group.slug.ru}/${item.slug.ru}/`}>
+              <span class="text-sm font-semibold text-ink-950">{legacyLabel(item.legacySlug) ?? item.title}</span>
+              <span class="mt-2 block text-xs leading-5 text-steel-600">
+                {count > 0 ? `${count} изделий доступно для подбора и расчета партии.` : "Менеджер подберет варианты по материалу, тиражу и брендингу."}
+              </span>
+              <span class="mt-3 inline-flex text-xs font-semibold text-emerald-700">Открыть направление</span>
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>

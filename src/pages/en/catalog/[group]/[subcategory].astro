@@ -2,9 +2,9 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import ProductCard from "@components/ProductCard.astro";
 import { catalogGroups } from "@data/catalog";
-import { legacyProductFamilies, legacyProductMigration } from "@data/legacyMigration";
 import { legacySubcategoryCoverage } from "@data/catalogCoverage";
-import { products } from "@data/products";
+import { getProductFamilyProfiles } from "@data/productFamilies";
+import { getProductsByFamilyIds } from "@data/products";
 
 export function getStaticPaths() {
   return legacySubcategoryCoverage.map((item) => {
@@ -24,11 +24,10 @@ export function getStaticPaths() {
 }
 
 const { group, item } = Astro.props;
-const legacyLink = group.subcategories.find((subcategory) => subcategory.originalSlug === item.legacySlug);
-const title = legacyLink?.label.en ?? item.title;
-const relevantFamilies = legacyProductFamilies.filter((family) => item.productFamilyIds.includes(family.id));
-const legacyRecords = legacyProductMigration.filter((record) => item.productFamilyIds.includes(record.familyId));
-const modeledProducts = products.filter((product) => product.categoryIds.includes(group.id) && item.productFamilyIds.includes(product.family));
+const categoryLabel = group.subcategories.find((subcategory) => subcategory.originalSlug === item.legacySlug)?.label.en;
+const title = categoryLabel ?? item.title;
+const familyProfiles = getProductFamilyProfiles(item.productFamilyIds);
+const products = getProductsByFamilyIds(item.productFamilyIds, group.id);
 const briefHref = `/en/contact/?intent=subcategory-brief&category=${group.id}&subcategory=${item.id}`;
 ---
 
@@ -37,7 +36,7 @@ const briefHref = `/en/contact/?intent=subcategory-brief&category=${group.id}&su
   path={`/en/catalog/${group.slug.en}/${item.slug.en}/`}
   pathWithoutLocale={`catalog/${group.slug.en}/${item.slug.en}/`}
   title={`${title} | Aksessoriuz`}
-  description={`B2B direction for ${title}: product references, materials, branding, and project brief for calculation.`}
+  description={`${title}: custom-made products, materials, branding, and batch quotation for B2B clients.`}
 >
   <section class="relative overflow-hidden bg-ink-950 py-16 text-white md:py-20">
     <img class="absolute inset-0 h-full w-full object-cover opacity-40" src={group.image.src} alt={group.image.alt.en} loading="eager" decoding="async" />
@@ -45,28 +44,27 @@ const briefHref = `/en/contact/?intent=subcategory-brief&category=${group.id}&su
     <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink-950 to-transparent"></div>
     <div class="container-page relative">
       <a class="inline-flex text-sm font-semibold text-brass-500 transition hover:text-white" href={`/en/catalog/${group.slug.en}/`}>Back to category</a>
-      <p class="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/62">B2B product direction</p>
+      <p class="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/62">Custom-made products</p>
       <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-white">{title}</h1>
       <p class="mt-5 max-w-3xl text-lg leading-8 text-white/74">
-        Choose a starting reference for a custom batch and discuss materials, branding, quantity, and timing with a manager.
+        Select product type, material, branding method, and approximate quantity. A manager will clarify details and prepare a quote around the business task.
       </p>
       <div class="mt-8 grid gap-3 sm:grid-cols-3">
         <div class="rounded-md border border-white/12 bg-white/10 p-4">
-          <p class="text-2xl font-semibold text-white">{legacyRecords.length}</p>
-          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">items in direction</p>
+          <p class="text-2xl font-semibold text-white">{familyProfiles.length}</p>
+          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">product families</p>
         </div>
         <div class="rounded-md border border-white/12 bg-white/10 p-4">
-          <p class="text-2xl font-semibold text-white">{modeledProducts.length}</p>
-          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">ready references</p>
+          <p class="text-2xl font-semibold text-white">{products.length > 0 ? products.length : "Selection"}</p>
+          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">options for quotation</p>
         </div>
         <div class="rounded-md border border-white/12 bg-white/10 p-4">
           <p class="text-2xl font-semibold text-white">B2B</p>
-          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">quote by batch</p>
+          <p class="mt-1 text-xs uppercase tracking-[0.14em] text-white/58">batch around a task</p>
         </div>
       </div>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={briefHref}>Discuss project</a>
-        <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/20 bg-white/10 px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-ink-950" href={item.currentUrl}>Open source section</a>
+        <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={briefHref}>Request quote</a>
       </div>
     </div>
   </section>
@@ -75,15 +73,17 @@ const briefHref = `/en/contact/?intent=subcategory-brief&category=${group.id}&su
     <div class="container-page grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
       <div>
         <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Direction scope</p>
-        <h2 class="mt-3 text-3xl font-semibold text-ink-950">What this direction covers</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">This is not a purchase page. It helps buyers choose a reference and gives the manager correct project context.</p>
+        <h2 class="mt-3 text-3xl font-semibold text-ink-950">Product families and use scenarios</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">This section helps buyers choose the right product type and form a quotation request faster.</p>
       </div>
       <div class="grid gap-4 md:grid-cols-2">
-        {relevantFamilies.map((family) => (
+        {familyProfiles.map((family) => (
           <div class="rounded-md border border-line-200 bg-white p-5">
-            <p class="text-sm font-semibold text-ink-950">{family.title}</p>
-            <p class="mt-3 text-xs leading-5 text-steel-600">Code series: {family.skuCodes.join(", ")}</p>
-            <p class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">{legacyProductMigration.filter((record) => record.familyId === family.id).length} items for selection</p>
+            <p class="text-sm font-semibold text-ink-950">{family.title.en}</p>
+            <p class="mt-3 text-sm leading-6 text-steel-600">{family.summary.en}</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {family.bestFor.map((tag) => <span class="rounded-full bg-mist-100 px-3 py-1 text-xs font-medium text-graphite-800">{tag.en}</span>)}
+            </div>
           </div>
         ))}
       </div>
@@ -94,18 +94,18 @@ const briefHref = `/en/contact/?intent=subcategory-brief&category=${group.id}&su
     <div class="container-page">
       <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
         <div>
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Reference items</p>
-          <h2 class="mt-3 text-3xl font-semibold text-ink-950">References for discussion</h2>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Products</p>
+          <h2 class="mt-3 text-3xl font-semibold text-ink-950">Options for quotation and discussion</h2>
         </div>
-        <p class="text-base leading-7 text-steel-600">Use available examples as references for calculation, samples, and negotiation. Final execution is selected by material, branding, quantity, and timing.</p>
+        <p class="text-base leading-7 text-steel-600">Each product can be adapted by material, brand colors, logo, quantity, timing, and use scenario.</p>
       </div>
-      {modeledProducts.length > 0 ? (
+      {products.length > 0 ? (
         <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {modeledProducts.slice(0, 9).map((product) => <ProductCard product={product} locale="en" />)}
+          {products.slice(0, 9).map((product) => <ProductCard product={product} locale="en" />)}
         </div>
       ) : (
         <div class="mt-10 rounded-md border border-line-200 bg-white p-6">
-          <p class="text-base font-semibold text-ink-950">Final cards for this direction are not approved yet.</p>
+          <p class="text-base font-semibold text-ink-950">This direction is available through custom selection.</p>
           <p class="mt-3 text-sm leading-6 text-steel-600">Describe the task, preferred material, quantity, and branding. A manager will suggest suitable options and prepare a quote.</p>
         </div>
       )}
@@ -115,11 +115,11 @@ const briefHref = `/en/contact/?intent=subcategory-brief&category=${group.id}&su
   <section class="py-16">
     <div class="container-page grid gap-8 rounded-md bg-ink-950 p-8 text-white md:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brass-500">Project brief</p>
-        <h2 class="mt-3 text-3xl font-semibold text-white">Need a calculation for this direction?</h2>
-        <p class="mt-4 max-w-3xl text-base leading-7 text-white/70">Send a reference, approximate quantity, materials, logo, and timing. A manager will clarify details and prepare a calculation or sample proposal.</p>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brass-500">Batch quotation</p>
+        <h2 class="mt-3 text-3xl font-semibold text-white">Need a product selected for your brand?</h2>
+        <p class="mt-4 max-w-3xl text-base leading-7 text-white/70">Send product type, approximate quantity, materials, logo, and timing. A manager will clarify details and prepare a proposal.</p>
       </div>
-      <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={briefHref}>Send brief</a>
+      <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={briefHref}>Send request</a>
     </div>
   </section>
 </BaseLayout>

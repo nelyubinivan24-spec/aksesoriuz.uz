@@ -9,40 +9,47 @@ type Props = {
 
 const { product, locale } = Astro.props as Props;
 const productHref = `/${locale}/products/${product.slug[locale]}/`;
-const quoteHref = `/${locale}/contact/?intent=product&product=${product.id}`;
+const quoteHref = `/${locale}/contact/?intent=product-quote&product=${product.id}`;
 const labels = {
   ru: {
-    draft: "Пример изделия",
-    details: "Смотреть пример",
-    quote: "Обсудить проект",
-    sku: "Артикул"
+    details: "Подробнее",
+    quote: "Рассчитать тираж",
+    sku: "Артикул",
+    materials: "Материалы"
   },
   en: {
-    draft: "Reference item",
     details: "Details",
-    quote: "Discuss project",
-    sku: "SKU"
+    quote: "Calculate batch",
+    sku: "SKU",
+    materials: "Materials"
   }
 };
 const t = labels[locale];
 ---
 
-<article class="group flex min-h-[460px] flex-col overflow-hidden rounded-md border border-line-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-700 hover:shadow-xl">
+<article class="group flex min-h-[500px] flex-col overflow-hidden rounded-md border border-line-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-700 hover:shadow-xl">
   <a class="block" href={productHref} aria-label={product.title[locale]}>
     <div class="relative aspect-square overflow-hidden bg-mist-100">
       <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src={product.image.src} alt={product.image.alt[locale]} loading="lazy" decoding="async" />
-      <div class="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-semibold text-ink-950">{t.draft}</div>
+      <div class="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-semibold text-ink-950">{product.badge[locale]}</div>
     </div>
   </a>
   <div class="flex flex-1 flex-col p-5">
     <div>
-      <p class="text-xs font-semibold uppercase tracking-[0.14em] text-brass-500">{t.sku} {product.sku}</p>
-      <h3 class="mt-2 text-xl font-semibold leading-snug text-ink-950">
+      <div class="flex flex-wrap items-center gap-2">
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-brass-500">{t.sku} {product.sku}</p>
+        <span class="rounded-full bg-mist-100 px-2.5 py-1 text-[11px] font-semibold text-graphite-800">{product.familyLabel[locale]}</span>
+      </div>
+      <h3 class="mt-3 text-xl font-semibold leading-snug text-ink-950">
         <a class="transition hover:text-emerald-700" href={productHref}>{product.title[locale]}</a>
       </h3>
-      <p class="mt-3 text-sm leading-6 text-steel-600">{product.description[locale]}</p>
-      <div class="mt-4 flex flex-wrap gap-2">
-        {product.materials.slice(0, 3).map((tag) => <span class="rounded-full bg-mist-100 px-3 py-1 text-xs font-medium text-graphite-800">{tag[locale]}</span>)}
+      <p class="mt-3 text-sm font-medium leading-6 text-ink-950">{product.shortUse[locale]}</p>
+      <p class="mt-2 text-sm leading-6 text-steel-600">{product.description[locale]}</p>
+      <div class="mt-4">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-steel-600">{t.materials}</p>
+        <div class="mt-2 flex flex-wrap gap-2">
+          {product.materials.slice(0, 3).map((tag) => <span class="rounded-full bg-mist-100 px-3 py-1 text-xs font-medium text-graphite-800">{tag[locale]}</span>)}
+        </div>
       </div>
     </div>
     <div class="mt-auto grid grid-cols-2 gap-3 pt-5">

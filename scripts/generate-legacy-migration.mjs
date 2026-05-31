@@ -4,7 +4,7 @@ import { request } from "node:https";
 const checkedDate = "2026-05-31";
 const root = new URL("../", import.meta.url);
 const outputUrl = new URL("../src/data/legacyMigration.ts", import.meta.url);
-const productsUrl = new URL("../src/data/products.ts", import.meta.url);
+const productTraceabilityUrl = new URL("../src/data/productTraceability.ts", import.meta.url);
 
 const skuPattern = /(?:mmcbm|chk|rzrv|mnj|slv|tbltnt|plnt|drp|blknt|ppk|pln|bznsnbr|cdh|kshlk|kvrkmk|brlk|uebj|vztn|bx|ktlg|fart|unfm|vztfl|sugb|kychn|ebj|pdstkn)-[0-9]+(?:-[0-9]+)?/i;
 const skuCodePattern = /(mmcbm|chk|rzrv|mnj|slv|tbltnt|plnt|drp|blknt|ppk|pln|bznsnbr|cdh|kshlk|kvrkmk|brlk|uebj|vztn|bx|ktlg|fart|unfm|vztfl|sugb|kychn|ebj|pdstkn)-([0-9]+(?:-[0-9]+)?)/i;
@@ -175,10 +175,10 @@ function groupBy(items, keyFn) {
 }
 
 async function readExistingProducts() {
-  const source = await readFile(productsUrl, "utf8");
+  const source = await readFile(productTraceabilityUrl, "utf8");
   const map = new Map();
   for (const line of source.split(/\r?\n/)) {
-    const match = line.match(/product\("([^"]+)".*"(https:\/\/aksesoriuz\.uz\/ru\/[^"]+\/)"/);
+    const match = line.match(/id:\s*"([^"]+)".*originalRuUrl:\s*"(https:\/\/aksesoriuz\.uz\/ru\/[^"]+\/)"/);
     if (match) {
       map.set(match[2], {
         ru: `/ru/products/${match[1]}/`,

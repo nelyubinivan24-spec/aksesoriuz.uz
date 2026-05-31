@@ -31,16 +31,17 @@ const relatedProducts = getRelatedProducts(product);
       <div>
         <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brass-500">SKU {product.sku}</p>
         <h1 class="mt-4 text-4xl font-semibold text-ink-950 md:text-5xl">{product.title.en}</h1>
+        <p class="mt-4 text-base font-semibold text-emerald-700">{product.familyLabel.en}</p>
         <p class="mt-5 text-lg leading-8 text-steel-600">{product.description.en}</p>
         <div class="mt-6 flex flex-wrap gap-2">
           {categoryLinks.map((link) => <a class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-ink-950 transition hover:text-emerald-700" href={link.href}>{link.title}</a>)}
         </div>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={`/en/contact/?intent=project-quote&reference=${product.id}`}>Request project quote</a>
-          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-line-200 bg-white px-5 text-sm font-semibold text-ink-950 transition hover:border-emerald-700" href={`/en/contact/?intent=sample&reference=${product.id}`}>Request sample</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={`/en/contact/?intent=project-quote&product=${product.id}`}>Request quote</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-line-200 bg-white px-5 text-sm font-semibold text-ink-950 transition hover:border-emerald-700" href={`/en/contact/?intent=sample&product=${product.id}`}>Discuss sample</a>
         </div>
         <p class="mt-5 rounded-md border border-line-200 bg-white p-4 text-sm leading-6 text-steel-600">
-          This is a reference item for negotiation: final materials, construction, quantity, branding, and timing are agreed around the client task.
+          Final execution is selected around the client task: material, construction, branding, quantity, timing, and use scenario are agreed before batch production.
         </p>
       </div>
     </div>
@@ -49,10 +50,14 @@ const relatedProducts = getRelatedProducts(product);
   <section class="py-16">
     <div class="container-page grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
       <div>
-        <h2 class="text-3xl font-semibold text-ink-950">Project brief parameters</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">This page helps prepare the conversation with a manager: what should be produced, from which materials, in what quantity, and with which branding.</p>
+        <h2 class="text-3xl font-semibold text-ink-950">What to clarify for quotation</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">To prepare a precise proposal, a manager needs the product, quantity, material, branding method, logo, and desired timing.</p>
       </div>
       <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-md border border-line-200 bg-white p-5">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.14em] text-steel-600">Use case</h3>
+          <p class="mt-4 text-sm leading-6 text-steel-600">{product.shortUse.en}</p>
+        </div>
         <div class="rounded-md border border-line-200 bg-white p-5">
           <h3 class="text-sm font-semibold uppercase tracking-[0.14em] text-steel-600">Materials</h3>
           <div class="mt-4 flex flex-wrap gap-2">
@@ -71,10 +76,6 @@ const relatedProducts = getRelatedProducts(product);
             {product.industries.map((item) => <span class="rounded-full bg-mist-100 px-3 py-1 text-xs font-medium text-graphite-800">{item.en}</span>)}
           </div>
         </div>
-        <div class="rounded-md border border-line-200 bg-white p-5">
-          <h3 class="text-sm font-semibold uppercase tracking-[0.14em] text-steel-600">Page role</h3>
-          <p class="mt-4 text-sm leading-6 text-steel-600">Reference item for discussion, not a self-service purchase page.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -82,8 +83,8 @@ const relatedProducts = getRelatedProducts(product);
   <section class="bg-mist-100 py-16">
     <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
       <div>
-        <h2 class="text-3xl font-semibold text-ink-950">Discuss a project</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">Send the reference, quantity, material, logo, and timing. A manager will clarify details and prepare a quote or sample proposal.</p>
+        <h2 class="text-3xl font-semibold text-ink-950">Calculate this product for your brand</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">Send SKU, quantity, material, logo, and timing. A manager will clarify details and prepare a quote or sample proposal.</p>
       </div>
       <QuoteForm client:idle locale="en" source={`product_${product.id}`} />
     </div>
@@ -92,7 +93,7 @@ const relatedProducts = getRelatedProducts(product);
   {relatedProducts.length > 0 && (
     <section class="py-16">
       <div class="container-page">
-        <h2 class="text-3xl font-semibold text-ink-950">Related positions</h2>
+        <h2 class="text-3xl font-semibold text-ink-950">Related products</h2>
         <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {relatedProducts.map((item) => <ProductCard product={item} locale="en" />)}
         </div>

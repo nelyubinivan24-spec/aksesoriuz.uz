@@ -306,3 +306,19 @@ Implication:
 - keep useful technical and original-site inventory assets;
 - rebuild public structure, homepage, catalog, product cards, category pages, services, industries, and proof pages through the restart plan;
 - require forbidden-language scans and browser checks before each public-stage approval.
+
+## 2026-05-31: Stage R1 Approved
+
+The client approved moving from restart audit into Stage R1.
+
+Implementation outcome:
+
+- public product data is separated from internal migration data;
+- product cards no longer use draft/source/backlog-style public wording;
+- public category and subcategory pages no longer import migration records directly;
+- original URL traceability remains internal through dedicated traceability and migration-control data.
+
+Implication:
+
+- future homepage and catalog redesign work should use the public product/family layer only;
+- `legacyMigration.ts` must remain an internal SEO and redirect-control asset, not a public page data source.

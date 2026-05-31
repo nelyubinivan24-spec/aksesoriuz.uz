@@ -31,16 +31,17 @@ const relatedProducts = getRelatedProducts(product);
       <div>
         <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brass-500">Артикул {product.sku}</p>
         <h1 class="mt-4 text-4xl font-semibold text-ink-950 md:text-5xl">{product.title.ru}</h1>
+        <p class="mt-4 text-base font-semibold text-emerald-700">{product.familyLabel.ru}</p>
         <p class="mt-5 text-lg leading-8 text-steel-600">{product.description.ru}</p>
         <div class="mt-6 flex flex-wrap gap-2">
           {categoryLinks.map((link) => <a class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-ink-950 transition hover:text-emerald-700" href={link.href}>{link.title}</a>)}
         </div>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={`/ru/contact/?intent=project-quote&reference=${product.id}`}>Запросить расчет проекта</a>
-          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-line-200 bg-white px-5 text-sm font-semibold text-ink-950 transition hover:border-emerald-700" href={`/ru/contact/?intent=sample&reference=${product.id}`}>Заказать образец</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href={`/ru/contact/?intent=project-quote&product=${product.id}`}>Запросить расчет</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-line-200 bg-white px-5 text-sm font-semibold text-ink-950 transition hover:border-emerald-700" href={`/ru/contact/?intent=sample&product=${product.id}`}>Обсудить образец</a>
         </div>
         <p class="mt-5 rounded-md border border-line-200 bg-white p-4 text-sm leading-6 text-steel-600">
-          Это референс для переговоров: финальные материалы, конструкция, тираж, брендирование и сроки согласуются под задачу клиента.
+          Финальное исполнение подбирается под задачу клиента: материал, конструкция, брендирование, тираж, сроки и формат использования согласуются перед запуском партии.
         </p>
       </div>
     </div>
@@ -49,10 +50,14 @@ const relatedProducts = getRelatedProducts(product);
   <section class="py-16">
     <div class="container-page grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
       <div>
-        <h2 class="text-3xl font-semibold text-ink-950">Параметры проектного брифа</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">Эта страница помогает подготовить разговор с менеджером: что нужно изготовить, из каких материалов, каким тиражом и с каким брендингом.</p>
+        <h2 class="text-3xl font-semibold text-ink-950">Что уточнить для расчета</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">Чтобы быстро подготовить предложение, менеджеру нужны продукт, количество, материал, способ брендирования, логотип и желаемые сроки.</p>
       </div>
       <div class="grid gap-4 md:grid-cols-2">
+        <div class="rounded-md border border-line-200 bg-white p-5">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.14em] text-steel-600">Назначение</h3>
+          <p class="mt-4 text-sm leading-6 text-steel-600">{product.shortUse.ru}</p>
+        </div>
         <div class="rounded-md border border-line-200 bg-white p-5">
           <h3 class="text-sm font-semibold uppercase tracking-[0.14em] text-steel-600">Материалы</h3>
           <div class="mt-4 flex flex-wrap gap-2">
@@ -71,10 +76,6 @@ const relatedProducts = getRelatedProducts(product);
             {product.industries.map((item) => <span class="rounded-full bg-mist-100 px-3 py-1 text-xs font-medium text-graphite-800">{item.ru}</span>)}
           </div>
         </div>
-        <div class="rounded-md border border-line-200 bg-white p-5">
-          <h3 class="text-sm font-semibold uppercase tracking-[0.14em] text-steel-600">Роль страницы</h3>
-          <p class="mt-4 text-sm leading-6 text-steel-600">Пример изделия и референс для обсуждения, а не товар для покупки через сайт.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -82,8 +83,8 @@ const relatedProducts = getRelatedProducts(product);
   <section class="bg-mist-100 py-16">
     <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
       <div>
-        <h2 class="text-3xl font-semibold text-ink-950">Обсудить проект</h2>
-        <p class="mt-4 text-base leading-7 text-steel-600">Отправьте ориентир, тираж, материал, логотип и сроки. Дальше менеджер уточнит детали и подготовит расчет или предложение по образцу.</p>
+        <h2 class="text-3xl font-semibold text-ink-950">Рассчитать изделие под ваш бренд</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">Отправьте артикул, тираж, материал, логотип и сроки. Менеджер уточнит детали и подготовит расчет или предложение по образцу.</p>
       </div>
       <QuoteForm client:idle locale="ru" source={`product_${product.id}`} />
     </div>
@@ -92,7 +93,7 @@ const relatedProducts = getRelatedProducts(product);
   {relatedProducts.length > 0 && (
     <section class="py-16">
       <div class="container-page">
-        <h2 class="text-3xl font-semibold text-ink-950">Похожие позиции</h2>
+        <h2 class="text-3xl font-semibold text-ink-950">Похожие изделия</h2>
         <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {relatedProducts.map((item) => <ProductCard product={item} locale="ru" />)}
         </div>

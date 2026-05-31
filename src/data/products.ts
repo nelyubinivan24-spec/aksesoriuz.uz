@@ -1,8 +1,7 @@
 import type { CatalogGroup, Localized, VisualAsset } from "./catalog";
 import { catalogGroups } from "./catalog";
+import { getProductFamilyProfile } from "./productFamilies";
 import type { Locale } from "./site";
-
-export type ProductStatus = "draft-from-current-site" | "client-approved";
 
 export type Product = {
   id: string;
@@ -10,60 +9,61 @@ export type Product = {
   sku: string;
   title: Localized;
   description: Localized;
+  shortUse: Localized;
+  badge: Localized;
   categoryIds: CatalogGroup["id"][];
   family: string;
+  familyLabel: Localized;
   industries: Localized[];
   materials: Localized[];
   brandingMethods: Localized[];
   image: VisualAsset;
-  legacyUrl: string;
-  status: ProductStatus;
 };
 
 const site = "https://aksesoriuz.uz";
 
 export const products: Product[] = [
-  product("menu-folder-mmcbm-0001", "MMCBM-0001", "Папка для меню MMCBM-0001", "Menu folder MMCBM-0001", "restaurant-accessories", "menu-folders", "https://aksesoriuz.uz/ru/papka-dlja-menju-mmcbm-0001/", "/data/uploads/module/blog/posts/2/500x500/624a84da4aeea.jpg"),
-  product("menu-folder-mmcbm-0008", "MMCBM-0008", "Папка для меню MMCBM-0008", "Menu folder MMCBM-0008", "restaurant-accessories", "menu-folders", "https://aksesoriuz.uz/ru/papka-dlja-menju-mmcbm-0008/", "/data/uploads/module/blog/posts/9/500x500/624a86471a568.jpg"),
-  product("menu-folder-mmcbm-0065", "MMCBM-0065", "Папка для меню MMCBM-0065", "Menu folder MMCBM-0065", "restaurant-accessories", "menu-folders", "https://aksesoriuz.uz/ru/papka-dlja-menju-mmcbm-0065/", "/data/uploads/module/blog/posts/249/500x500/6717a5d93eef0.jpg"),
-  product("check-holder-chk-0002", "CHK-0002", "Чекхолдер CHK-0002", "Check holder CHK-0002", "restaurant-accessories", "checkholders", "https://aksesoriuz.uz/ru/chekholder-chk-0002/", "/data/uploads/module/blog/posts/63/500x500/624acba2e4933.jpg"),
-  product("check-holder-chk-00014", "CHK-00014", "Чекхолдер CHK-00014", "Check holder CHK-00014", "restaurant-accessories", "checkholders", "https://aksesoriuz.uz/ru/chekholder-chk-00014/", "/data/uploads/module/blog/posts/75/500x500/624ace39a2439.jpg"),
-  product("check-box-chk-00020", "CHK-00020", "Чекбокс CHK-00020", "Check box CHK-00020", "restaurant-accessories", "checkboxes", "https://aksesoriuz.uz/ru/chekboks-chk-00020/", "/data/uploads/module/blog/posts/81/500x500/624acf581853a.jpg"),
-  product("reserved-sign-rzrv-0001", "RZRV-0001", "Резерв RZRV-0001", "Reserved sign RZRV-0001", "restaurant-accessories", "reserved-signs", "https://aksesoriuz.uz/ru/rezerv-rzrv-0001/", "/data/uploads/module/blog/posts/198/500x500/6226161a458bf.jpg"),
-  product("reserved-sign-rzrv-00013", "RZRV-00013", "Резерв RZRV-00013", "Reserved sign RZRV-00013", "restaurant-accessories", "reserved-signs", "https://aksesoriuz.uz/ru/rezerv-rzrv-00013/", "/data/uploads/module/blog/posts/246/500x500/6717a315258c1.jpg"),
-  product("serving-tray-mnj-0001", "MNJ-0001", "Менажница MNJ-0001", "Serving tray MNJ-0001", "restaurant-accessories", "serving-trays", "https://aksesoriuz.uz/ru/menazhnica-mnj-0001/", "/data/uploads/module/blog/posts/174/500x500/62260a226695c.jpg"),
-  product("napkin-holder-slv-0002", "SLV-0002", "Салфетница SLV-0002", "Napkin holder SLV-0002", "restaurant-accessories", "napkin-holders", "https://aksesoriuz.uz/ru/salfetnica-slv-0002/", "/data/uploads/module/blog/posts/212/500x500/62261a5ab9df4.jpg"),
-  product("table-tent-tbltnt-0001", "TBLTNT-0001", "Тейбл тенд TBLTNT-0001", "Table tent TBLTNT-0001", "restaurant-accessories", "table-tents", "https://aksesoriuz.uz/ru/tejbl-tend-tbltnt-0001/", "/data/uploads/module/blog/posts/221/500x500/622628a4bc3cf.jpg"),
-  product("clipboard-plnt-0001", "PLNT-0001", "Планшет PLNT-0001", "Clipboard PLNT-0001", "restaurant-accessories", "clipboards", "https://aksesoriuz.uz/ru/planshet-plnt-0001/", "/data/uploads/module/blog/posts/193/500x500/6226142222c5e.jpg"),
-  product("wooden-tableware-drp-0001", "DRP-0001", "Древесная посуда DRP-0001", "Wooden tableware DRP-0001", "restaurant-accessories", "wooden-tableware", "https://aksesoriuz.uz/ru/drevestnaya-posuda-drp-0001/", "/data/uploads/module/blog/posts/247/500x500/6717a43153ab9.jpg"),
+  product("menu-folder-mmcbm-0001", "MMCBM-0001", "Папка для меню MMCBM-0001", "Menu folder MMCBM-0001", "restaurant-accessories", "menu-folders", "/data/uploads/module/blog/posts/2/500x500/624a84da4aeea.jpg"),
+  product("menu-folder-mmcbm-0008", "MMCBM-0008", "Папка для меню MMCBM-0008", "Menu folder MMCBM-0008", "restaurant-accessories", "menu-folders", "/data/uploads/module/blog/posts/9/500x500/624a86471a568.jpg"),
+  product("menu-folder-mmcbm-0065", "MMCBM-0065", "Папка для меню MMCBM-0065", "Menu folder MMCBM-0065", "restaurant-accessories", "menu-folders", "/data/uploads/module/blog/posts/249/500x500/6717a5d93eef0.jpg"),
+  product("check-holder-chk-0002", "CHK-0002", "Чекхолдер CHK-0002", "Check holder CHK-0002", "restaurant-accessories", "checkholders", "/data/uploads/module/blog/posts/63/500x500/624acba2e4933.jpg"),
+  product("check-holder-chk-00014", "CHK-00014", "Чекхолдер CHK-00014", "Check holder CHK-00014", "restaurant-accessories", "checkholders", "/data/uploads/module/blog/posts/75/500x500/624ace39a2439.jpg"),
+  product("check-box-chk-00020", "CHK-00020", "Чекбокс CHK-00020", "Check box CHK-00020", "restaurant-accessories", "checkboxes", "/data/uploads/module/blog/posts/81/500x500/624acf581853a.jpg"),
+  product("reserved-sign-rzrv-0001", "RZRV-0001", "Табличка резерв RZRV-0001", "Reserved sign RZRV-0001", "restaurant-accessories", "reserved-signs", "/data/uploads/module/blog/posts/198/500x500/6226161a458bf.jpg"),
+  product("reserved-sign-rzrv-00013", "RZRV-00013", "Табличка резерв RZRV-00013", "Reserved sign RZRV-00013", "restaurant-accessories", "reserved-signs", "/data/uploads/module/blog/posts/246/500x500/6717a315258c1.jpg"),
+  product("serving-tray-mnj-0001", "MNJ-0001", "Менажница MNJ-0001", "Serving tray MNJ-0001", "restaurant-accessories", "serving-trays", "/data/uploads/module/blog/posts/174/500x500/62260a226695c.jpg"),
+  product("napkin-holder-slv-0002", "SLV-0002", "Салфетница SLV-0002", "Napkin holder SLV-0002", "restaurant-accessories", "napkin-holders", "/data/uploads/module/blog/posts/212/500x500/62261a5ab9df4.jpg"),
+  product("table-tent-tbltnt-0001", "TBLTNT-0001", "Тейбл-тент TBLTNT-0001", "Table tent TBLTNT-0001", "restaurant-accessories", "table-tents", "/data/uploads/module/blog/posts/221/500x500/622628a4bc3cf.jpg"),
+  product("clipboard-plnt-0001", "PLNT-0001", "Планшет PLNT-0001", "Clipboard PLNT-0001", "restaurant-accessories", "clipboards", "/data/uploads/module/blog/posts/193/500x500/6226142222c5e.jpg"),
+  product("wooden-tableware-drp-0001", "DRP-0001", "Деревянная посуда DRP-0001", "Wooden tableware DRP-0001", "restaurant-accessories", "wooden-tableware", "/data/uploads/module/blog/posts/247/500x500/6717a43153ab9.jpg"),
 
-  product("proposal-book-sugb-0001", "SUGB-0001", "Каталог продукции SUGB-0001", "Proposal book SUGB-0001", "business-products", "proposal-books", "https://aksesoriuz.uz/ru/katalog-produkcii-sugb-0001/", "/data/uploads/module/blog/posts/107/500x500/6225c8cd28a52.jpg"),
-  product("diary-blknt-0001", "BLKNT-0001", "Ежедневник BLKNT-0001", "Diary BLKNT-0001", "business-products", "diaries", "https://aksesoriuz.uz/ru/bloknot-blknt-0001/", "/data/uploads/module/blog/posts/108/500x500/6225cd38d65fd.jpg"),
-  product("diary-blknt-00012", "BLKNT-00012", "Ежедневник BLKNT-00012", "Diary BLKNT-00012", "business-products", "diaries", "https://aksesoriuz.uz/ru/ezhednevnik-blknt-00012/", "/data/uploads/module/blog/posts/118/500x500/6225d4a91d515.jpg"),
-  product("document-folder-ppk-0002", "PPK-0002", "Папка для бумаг PPK-0002", "Document folder PPK-0002", "business-products", "document-folders", "https://aksesoriuz.uz/ru/papka-dlja-bumag-ppk-0002/", "/data/uploads/module/blog/posts/119/500x500/6225d5adeba2b.jpg"),
-  product("planner-pln-0001", "PLN-0001", "Планнер PLN-0001", "Planner PLN-0001", "business-products", "planners", "https://aksesoriuz.uz/ru/planner-pln-0001/", "/data/uploads/module/blog/posts/127/500x500/6225df15c1714.jpg"),
-  product("business-set-bznsnbr-0001", "BZNSNBR-0001", "Бизнес-набор BZNSNBR-0001", "Business set BZNSNBR-0001", "business-products", "business-sets", "https://aksesoriuz.uz/ru/biznes-nabor-bznsnbr-0001/", "/data/uploads/module/blog/posts/154/500x500/624ad50ad42ce.jpg"),
-  product("cardholder-cdh-0001", "CDH-0001", "Картхолдер CDH-0001", "Cardholder CDH-0001", "business-products", "cardholders", "https://aksesoriuz.uz/ru/kartholder-cdh-0001/", "/data/uploads/module/blog/posts/157/500x500/6225fd4dbcbe1.jpg"),
-  product("wallet-kshlk-0001", "KSHLK-0001", "Кошелек KSHLK-0001", "Wallet KSHLK-0001", "business-products", "wallets-portmone-clutches", "https://aksesoriuz.uz/ru/koshelek-kshlk-0001/", "/data/uploads/module/blog/posts/163/500x500/6226005667009.jpg"),
-  product("mouse-pad-kvrkmk-0001", "KVRKMK-0001", "Коврик для мышки KVRKMK-0001", "Mouse pad KVRKMK-0001", "business-products", "mouse-pads", "https://aksesoriuz.uz/ru/kovrik-dlja-myshki-kvrkmk-0001/", "/data/uploads/module/blog/posts/166/500x500/62260616eb5b6.jpg"),
-  product("keychain-brlk-0001", "BRLK-0001", "Брелок BRLK-0001", "Keychain BRLK-0001", "business-products", "keychains", "https://aksesoriuz.uz/ru/brelok-brlk-0001/", "/data/uploads/module/blog/posts/128/500x500/6225e0161605f.jpg"),
-  product("id-cover-uebj-0001", "UEBJ-0001", "Удостоверение UEBJ-0001", "ID cover UEBJ-0001", "business-products", "id-covers-badges", "https://aksesoriuz.uz/ru/udostoverenie-uebj-0001/", "/data/uploads/module/blog/posts/223/500x500/6226214fbd4ed.jpg"),
-  product("badge-uebj-0005", "UEBJ-0005", "Бейджик UEBJ-0005", "Badge UEBJ-0005", "business-products", "id-covers-badges", "https://aksesoriuz.uz/ru/bejdzhik-uebj-0005/", "/data/uploads/module/blog/posts/229/500x500/6226242a9ce64.jpg"),
-  product("business-card-holder-vztn-0001", "VZTN-0001", "Визитница VZTN-0001", "Business card holder VZTN-0001", "business-products", "business-card-holders", "https://aksesoriuz.uz/ru/vizitnica-vztn-0001/", "/data/uploads/module/blog/posts/234/500x500/622626020a298.jpg"),
+  product("proposal-book-sugb-0001", "SUGB-0001", "Каталог продукции SUGB-0001", "Proposal book SUGB-0001", "business-products", "proposal-books", "/data/uploads/module/blog/posts/107/500x500/6225c8cd28a52.jpg"),
+  product("diary-blknt-0001", "BLKNT-0001", "Ежедневник BLKNT-0001", "Diary BLKNT-0001", "business-products", "diaries", "/data/uploads/module/blog/posts/108/500x500/6225cd38d65fd.jpg"),
+  product("diary-blknt-00012", "BLKNT-00012", "Ежедневник BLKNT-00012", "Diary BLKNT-00012", "business-products", "diaries", "/data/uploads/module/blog/posts/118/500x500/6225d4a91d515.jpg"),
+  product("document-folder-ppk-0002", "PPK-0002", "Папка для документов PPK-0002", "Document folder PPK-0002", "business-products", "document-folders", "/data/uploads/module/blog/posts/119/500x500/6225d5adeba2b.jpg"),
+  product("planner-pln-0001", "PLN-0001", "Планнер PLN-0001", "Planner PLN-0001", "business-products", "planners", "/data/uploads/module/blog/posts/127/500x500/6225df15c1714.jpg"),
+  product("business-set-bznsnbr-0001", "BZNSNBR-0001", "Бизнес-набор BZNSNBR-0001", "Business set BZNSNBR-0001", "business-products", "business-sets", "/data/uploads/module/blog/posts/154/500x500/624ad50ad42ce.jpg"),
+  product("cardholder-cdh-0001", "CDH-0001", "Картхолдер CDH-0001", "Cardholder CDH-0001", "business-products", "cardholders", "/data/uploads/module/blog/posts/157/500x500/6225fd4dbcbe1.jpg"),
+  product("wallet-kshlk-0001", "KSHLK-0001", "Кошелек KSHLK-0001", "Wallet KSHLK-0001", "business-products", "wallets-portmone-clutches", "/data/uploads/module/blog/posts/163/500x500/6226005667009.jpg"),
+  product("mouse-pad-kvrkmk-0001", "KVRKMK-0001", "Коврик для мыши KVRKMK-0001", "Mouse pad KVRKMK-0001", "business-products", "mouse-pads", "/data/uploads/module/blog/posts/166/500x500/62260616eb5b6.jpg"),
+  product("keychain-brlk-0001", "BRLK-0001", "Брелок BRLK-0001", "Keychain BRLK-0001", "business-products", "keychains", "/data/uploads/module/blog/posts/128/500x500/6225e0161605f.jpg"),
+  product("id-cover-uebj-0001", "UEBJ-0001", "Обложка для удостоверения UEBJ-0001", "ID cover UEBJ-0001", "business-products", "id-covers-badges", "/data/uploads/module/blog/posts/223/500x500/6226214fbd4ed.jpg"),
+  product("badge-uebj-0005", "UEBJ-0005", "Бейдж UEBJ-0005", "Badge UEBJ-0005", "business-products", "id-covers-badges", "/data/uploads/module/blog/posts/229/500x500/6226242a9ce64.jpg"),
+  product("business-card-holder-vztn-0001", "VZTN-0001", "Визитница VZTN-0001", "Business card holder VZTN-0001", "business-products", "business-card-holders", "/data/uploads/module/blog/posts/234/500x500/622626020a298.jpg"),
 
-  product("gift-box-bx-0001", "BX-0001", "Футляр BX-0001", "Gift box BX-0001", "packaging-souvenirs", "boxes", "https://aksesoriuz.uz/ru/futljar-bx-0001/", "/data/uploads/module/blog/posts/129/500x500/6225e073c09f1.jpg"),
-  product("gift-box-bx-0024", "BX-0024", "Футляр BX-0024", "Gift box BX-0024", "packaging-souvenirs", "boxes", "https://aksesoriuz.uz/ru/futljar-bx-0024/", "/data/uploads/module/blog/posts/244/500x500/6717a0a668902.jpg"),
-  product("branded-bag-ktlg-0001", "KTLG-0001", "Сумка KTLG-0001", "Branded bag KTLG-0001", "packaging-souvenirs", "packaging", "https://aksesoriuz.uz/ru/sumka-ktlg-0001/", "/data/uploads/module/blog/posts/164/500x500/622600b919a78.jpg"),
+  product("gift-box-bx-0001", "BX-0001", "Футляр BX-0001", "Gift box BX-0001", "packaging-souvenirs", "boxes", "/data/uploads/module/blog/posts/129/500x500/6225e073c09f1.jpg"),
+  product("gift-box-bx-0024", "BX-0024", "Футляр BX-0024", "Gift box BX-0024", "packaging-souvenirs", "boxes", "/data/uploads/module/blog/posts/244/500x500/6717a0a668902.jpg"),
+  product("branded-bag-ktlg-0001", "KTLG-0001", "Брендированная сумка KTLG-0001", "Branded bag KTLG-0001", "packaging-souvenirs", "packaging", "/data/uploads/module/blog/posts/164/500x500/622600b919a78.jpg"),
 
-  product("apron-fart-0001", "FART-0001", "Фартук FART-0001", "Apron FART-0001", "uniforms-textile", "aprons", "https://aksesoriuz.uz/ru/fartuk-fart-0001/", "/data/uploads/module/blog/posts/254/500x500/6717acd467544.jpg"),
-  product("uniform-unfm-0001", "UNFM-0001", "Униформа UNFM-0001", "Uniform UNFM-0001", "uniforms-textile", "uniforms", "https://aksesoriuz.uz/ru/uniforma-unfm-0001/", "/data/uploads/module/blog/posts/256/500x500/67190b797b0c9.jpg"),
-  product("uniform-unfm-0003", "UNFM-0003", "Униформа UNFM-0003", "Uniform UNFM-0003", "uniforms-textile", "uniforms", "https://aksesoriuz.uz/ru/uniforma-unfm-0003/", "/data/uploads/module/blog/posts/258/500x500/67190da074c4b.jpg")
+  product("apron-fart-0001", "FART-0001", "Фартук FART-0001", "Apron FART-0001", "uniforms-textile", "aprons", "/data/uploads/module/blog/posts/254/500x500/6717acd467544.jpg"),
+  product("uniform-unfm-0001", "UNFM-0001", "Униформа UNFM-0001", "Uniform UNFM-0001", "uniforms-textile", "uniforms", "/data/uploads/module/blog/posts/256/500x500/67190b797b0c9.jpg"),
+  product("uniform-unfm-0003", "UNFM-0003", "Униформа UNFM-0003", "Uniform UNFM-0003", "uniforms-textile", "uniforms", "/data/uploads/module/blog/posts/258/500x500/67190da074c4b.jpg")
 ];
 
 export const featuredProducts = products.slice(0, 8);
 
 export function getProductBySlug(slug: string) {
-  return products.find((product) => product.slug.ru === slug || product.slug.en === slug);
+  return products.find((productItem) => productItem.slug.ru === slug || productItem.slug.en === slug);
 }
 
 export function getProductsByCatalogGroupId(groupId: string) {
@@ -71,7 +71,20 @@ export function getProductsByCatalogGroupId(groupId: string) {
     return products.slice(0, 12);
   }
 
-  return products.filter((product) => product.categoryIds.includes(groupId));
+  return products.filter((productItem) => productItem.categoryIds.includes(groupId));
+}
+
+export function getProductsByFamilyIds(familyIds: readonly string[], groupId?: string) {
+  return products.filter((productItem) => {
+    const inFamily = familyIds.includes(productItem.family);
+    const inGroup = groupId ? productItem.categoryIds.includes(groupId) : true;
+
+    return inFamily && inGroup;
+  });
+}
+
+export function getProductCountByFamilyIds(familyIds: readonly string[], groupId?: string) {
+  return getProductsByFamilyIds(familyIds, groupId).length;
 }
 
 export function getRelatedProducts(product: Product, limit = 4) {
@@ -88,28 +101,60 @@ export function getProductCategoryLinks(product: Product, locale: Locale) {
     }));
 }
 
-function product(id: string, sku: string, ruTitle: string, enTitle: string, categoryId: CatalogGroup["id"], family: string, legacyUrl: string, imagePath: string): Product {
+function product(id: string, sku: string, ruTitle: string, enTitle: string, categoryId: CatalogGroup["id"], family: string, imagePath: string): Product {
+  const familyProfile = getProductFamilyProfile(family);
+  const familyLabel = familyProfile?.title ?? { ru: "Изделие под заказ", en: "Custom product" };
+  const familySummary = familyProfile?.summary ?? {
+    ru: "Изделие производится под задачу клиента: материал, размер, брендирование, тираж и сроки согласуются перед запуском партии.",
+    en: "The item is produced around the client task: material, size, branding, quantity, and timing are agreed before production."
+  };
+
   return {
     id,
     slug: { ru: id, en: id },
     sku,
     title: { ru: ruTitle, en: enTitle },
     description: {
-      ru: "Референс для обсуждения проекта: материалы, размеры, тираж и комплектация уточняются с менеджером.",
-      en: "Project discussion reference: materials, dimensions, quantity, and configuration are clarified with a manager."
+      ru: `${familySummary.ru} Конструкция и комплектация уточняются перед расчетом.`,
+      en: `${familySummary.en} Construction and configuration are clarified before quotation.`
     },
+    shortUse: shortUseLabels(family, categoryId),
+    badge: { ru: "Под заказ", en: "Custom made" },
     categoryIds: categoryId === "restaurant-accessories" ? [categoryId, "hotel-accessories"] : [categoryId],
     family,
+    familyLabel,
     industries: industryLabels(categoryId),
     materials: materialLabels(family),
     brandingMethods: brandingLabels(family),
     image: {
       src: `${site}${imagePath}`,
       alt: { ru: ruTitle, en: enTitle }
-    },
-    legacyUrl,
-    status: "draft-from-current-site"
+    }
   };
+}
+
+function shortUseLabels(family: string, categoryId: CatalogGroup["id"]): Localized {
+  if (family === "menu-folders") {
+    return { ru: "Для меню, барных карт и сервисных предложений", en: "For menus, bar lists, and service offers" };
+  }
+
+  if (family === "checkholders" || family === "checkboxes") {
+    return { ru: "Для подачи счета и финального контакта с гостем", en: "For bill presentation and the final guest touchpoint" };
+  }
+
+  if (family === "boxes" || family === "packaging") {
+    return { ru: "Для подарков, презентаций и брендированной упаковки", en: "For gifts, presentations, and branded packaging" };
+  }
+
+  if (family === "uniforms" || family === "aprons") {
+    return { ru: "Для персонала, сервиса и фирменного внешнего вида", en: "For staff, service, and branded team appearance" };
+  }
+
+  if (categoryId === "business-products") {
+    return { ru: "Для корпоративных подарков, офиса и деловых встреч", en: "For corporate gifts, offices, and business meetings" };
+  }
+
+  return { ru: "Для фирменного сервиса и презентации бренда", en: "For branded service and brand presentation" };
 }
 
 function industryLabels(categoryId: CatalogGroup["id"]): Localized[] {
@@ -141,7 +186,7 @@ function materialLabels(family: string): Localized[] {
     return [{ ru: "картон", en: "cardboard" }, { ru: "бумага", en: "paper" }, { ru: "декор", en: "finishing" }];
   }
 
-  return [{ ru: "экокожа", en: "eco leather" }, { ru: "бумага", en: "paper" }, { ru: "металл", en: "metal" }];
+  return [{ ru: "эко-кожа", en: "eco leather" }, { ru: "бумага", en: "paper" }, { ru: "металл", en: "metal" }];
 }
 
 function brandingLabels(family: string): Localized[] {

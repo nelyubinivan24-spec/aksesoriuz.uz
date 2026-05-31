@@ -12,25 +12,31 @@ Reason:
 
 The project is now in restart mode.
 
+Completed restart stages:
+
+- R0: restart audit, guardrails, and information architecture;
+- R1: public product content model separated from internal migration data.
+
 ## Active Restart Documents
 
 - `docs/RESTART_AUDIT.md`
 - `docs/RESTART_INFORMATION_ARCHITECTURE.md`
 - `docs/RESTART_IMPLEMENTATION_PLAN.md`
+- `docs/STAGE_R1_PUBLIC_CONTENT_MODEL.md`
 
 ## Immediate Next Stage
 
-Recommended Stage R1:
+Recommended Stage R2:
 
-Public content model separation.
+Premium homepage rebuild.
 
 Goal:
 
-- keep internal migration data as an SEO/control layer only;
-- create a clean public product/category/service content model;
-- prevent internal statuses or migration terms from being rendered on public pages;
-- define commercially useful fields for B2B product cards;
-- prepare the homepage and catalog rebuild on a stronger foundation.
+- rebuild the homepage as the accepted design and commercial standard;
+- keep the product-led transparent hero direction the client liked;
+- present Aksessoriuz as a premium B2B custom-production partner;
+- show core product directions, buyer tasks, production capabilities, materials, proof, process, and quote CTA;
+- verify desktop/mobile before approval.
 
 ## Required Client Inputs
 
@@ -52,4 +58,3 @@ Goal:
 - define legacy URL redirect strategy;
 - review deployment provider;
 - run final SEO, performance, accessibility, and visual QA.
-
