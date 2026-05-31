@@ -1,0 +1,65 @@
+---
+import ProductGroupCard from "@components/ProductGroupCard.astro";
+import QuoteForm from "@components/QuoteForm";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const groups = [
+  {
+    title: "Restaurants and cafes",
+    description: "Menu covers, check holders, table tents, reserves, and branded service details.",
+    href: "/en/catalog/restaurant-accessories/",
+    tags: ["Menus", "Check holders", "Placemats"]
+  },
+  {
+    title: "Packaging and gifts",
+    description: "Branded boxes, gift sets, and presentation packaging for business.",
+    href: "/en/catalog/packaging-souvenirs/",
+    tags: ["Boxes", "Bags", "Gifts"]
+  },
+  {
+    title: "Business products",
+    description: "Diaries, folders, business sets, cardholders, and corporate gifts.",
+    href: "/en/catalog/business-products/",
+    tags: ["Sets", "Folders", "Diaries"]
+  }
+];
+---
+
+<BaseLayout
+  locale="en"
+  path="/en/"
+  pathWithoutLocale=""
+  title="Aksessoriuz — branded products, packaging and accessories for business"
+  description="Custom branded products, packaging, accessories, uniforms, and business gifts for restaurants, hotels, retail, and companies in Uzbekistan."
+>
+  <section class="bg-mist-100 py-16 md:py-24">
+    <div class="container-page grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Custom branded production</p>
+        <h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-tight text-ink-950 md:text-6xl">
+          Branded business details people see, touch, and remember
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-steel-600">
+          We produce menu covers, packaging, corporate gifts, uniforms, and branded accessories for restaurants, hotels, retail, and companies.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href="/en/contact/?intent=quote">Request calculation</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-line-200 bg-white px-5 text-sm font-semibold text-ink-950 transition hover:border-emerald-700" href="/en/catalog/">View catalog</a>
+        </div>
+      </div>
+      <QuoteForm client:idle locale="en" source="home_hero" />
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="container-page">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-semibold text-ink-950">Choose a path</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">The site structure supports discovery by business type, product type, or production technology.</p>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-3">
+        {groups.map((group) => <ProductGroupCard {...group} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

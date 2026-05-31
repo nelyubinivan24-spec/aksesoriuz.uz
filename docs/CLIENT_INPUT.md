@@ -179,3 +179,21 @@ Approved UX structure:
 Implication:
 
 Stage 6 should define a visual system that supports premium B2B manufacturing, dense catalog utility, strong product imagery, and clear conversion without looking like a generic template catalog.
+
+## 2026-05-31: Stage 6 UI Design System Approved
+
+The client approved the Stage 6 UI design system direction.
+
+Approved design direction:
+
+- Premium B2B production partner.
+- Real product photography and material details should carry the visual identity.
+- Neutral professional palette with restrained emerald/teal action colors and limited brass accent.
+- Compact, practical catalog UI instead of a decorative template.
+- Quote-first product cards and forms.
+- Mobile-first sticky contact actions.
+- Accessibility, stable dimensions, and responsive behavior are required.
+
+Implication:
+
+Stage 7 should translate the approved strategy, UX, and design system into a technical Astro foundation with reusable layouts, components, tokens, SEO helpers, and route structure.

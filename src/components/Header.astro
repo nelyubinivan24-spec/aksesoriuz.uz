@@ -1,0 +1,39 @@
+---
+import { mainNav } from "@data/navigation";
+import { site, type Locale } from "@data/site";
+import { alternateLocale, labels } from "@lib/i18n";
+
+const { locale } = Astro.props as { locale: Locale };
+const t = labels[locale];
+const otherLocale = alternateLocale(locale);
+---
+
+<header class="border-b border-line-200 bg-white">
+  <div class="container-page flex min-h-20 items-center justify-between gap-6">
+    <a href={`/${locale}/`} class="flex items-center gap-3 font-semibold text-ink-950" aria-label="Aksessoriuz">
+      <span class="grid h-10 w-10 place-items-center rounded-md bg-ink-950 text-sm font-bold text-white">A</span>
+      <span class="text-lg tracking-normal">Aksessoriuz</span>
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm font-medium text-graphite-800 lg:flex" aria-label="Main navigation">
+      {mainNav.map((item) => (
+        <a class="transition hover:text-emerald-700" href={item.href[locale]}>{item.label[locale]}</a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a class="hidden text-sm font-medium text-graphite-800 transition hover:text-emerald-700 md:inline-flex" href={`tel:${site.contacts.phonePrimary}`}>
+        {site.contacts.phonePrimaryLabel}
+      </a>
+      <a class="rounded-md border border-line-200 px-3 py-2 text-sm font-medium text-graphite-800 transition hover:border-emerald-700 hover:text-emerald-700" href={`/${otherLocale}/`} aria-label={t.language}>
+        {otherLocale.toUpperCase()}
+      </a>
+      <a class="hidden rounded-md bg-emerald-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-600 md:inline-flex" href={`/${locale}/contact/?intent=quote`}>
+        {t.requestQuote}
+      </a>
+      <button class="inline-flex h-11 w-11 items-center justify-center rounded-md border border-line-200 text-ink-950 lg:hidden" type="button" aria-label="Open menu">
+        <span class="h-0.5 w-5 bg-current shadow-[0_6px_0_current,0_-6px_0_current]"></span>
+      </button>
+    </div>
+  </div>
+</header>

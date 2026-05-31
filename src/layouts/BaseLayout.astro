@@ -1,0 +1,40 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import MobileStickyBar from "@components/MobileStickyBar.astro";
+import { absoluteUrl, localeAlternates, type SeoProps } from "@lib/seo";
+import "@styles/global.css";
+
+const props = Astro.props as SeoProps & { pathWithoutLocale?: string };
+const alternates = localeAlternates(props.pathWithoutLocale ?? "");
+const canonical = absoluteUrl(props.path);
+const ogImage = props.image ? absoluteUrl(props.image) : undefined;
+---
+
+<!doctype html>
+<html lang={props.locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{props.title}</title>
+    <meta name="description" content={props.description} />
+    {props.noindex && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="ru" href={alternates.ru} />
+    <link rel="alternate" hreflang="en" href={alternates.en} />
+    <link rel="alternate" hreflang="x-default" href={alternates.xDefault} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={props.title} />
+    <meta property="og:description" content={props.description} />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+  </head>
+  <body>
+    <Header locale={props.locale} />
+    <main>
+      <slot />
+    </main>
+    <Footer locale={props.locale} />
+    <MobileStickyBar locale={props.locale} />
+  </body>
+</html>

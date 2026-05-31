@@ -1,0 +1,23 @@
+---
+import QuoteForm from "@components/QuoteForm";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { site } from "@data/site";
+---
+
+<BaseLayout locale="ru" path="/ru/contact/" pathWithoutLocale="contact/" title="Контакты | Aksessoriuz" description="Свяжитесь с Aksessoriuz, чтобы запросить расчет брендированной продукции, упаковки, аксессуаров или производственных услуг.">
+  <section class="bg-mist-100 py-16">
+    <div class="container-page grid gap-10 lg:grid-cols-[0.9fr_1fr]">
+      <div>
+        <h1 class="text-4xl font-semibold text-ink-950">Контакты</h1>
+        <p class="mt-5 text-lg leading-8 text-steel-600">Отправьте запрос или свяжитесь напрямую. Мы уточним материалы, количество, брендинг и сроки.</p>
+        <div class="mt-8 grid gap-3 text-sm text-graphite-800">
+          <a href={`tel:${site.contacts.phonePrimary}`}>{site.contacts.phonePrimaryLabel}</a>
+          <a href={`tel:${site.contacts.phoneSecondary}`}>{site.contacts.phoneSecondaryLabel}</a>
+          <a href={`mailto:${site.contacts.email}`}>{site.contacts.email}</a>
+          <p>{site.contacts.address.ru}</p>
+        </div>
+      </div>
+      <QuoteForm client:idle locale="ru" source="contact_page" />
+    </div>
+  </section>
+</BaseLayout>

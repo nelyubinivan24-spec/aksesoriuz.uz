@@ -27,7 +27,7 @@ Core methodology:
 
 ## Current Status
 
-Stage 0 is in progress: repository setup and project documentation.
+Stage 7 is in progress: technical foundation.
 
 ## Proposed Technical Direction
 
@@ -41,3 +41,22 @@ Stage 0 is in progress: repository setup and project documentation.
 
 Final stack decisions are documented in `docs/TECHNICAL_DECISIONS.md`.
 
+## Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run local development server:
+
+```bash
+npm run dev
+```
+
+Run validation build:
+
+```bash
+npm run build
+```

@@ -1,0 +1,65 @@
+---
+import ProductGroupCard from "@components/ProductGroupCard.astro";
+import QuoteForm from "@components/QuoteForm";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const groups = [
+  {
+    title: "Для ресторанов и кафе",
+    description: "Меню, чекхолдеры, тейбл-тенты, резервы и детали сервиса под бренд заведения.",
+    href: "/ru/catalog/restaurant-accessories/",
+    tags: ["Меню", "Чекхолдеры", "Плейсметы"]
+  },
+  {
+    title: "Упаковка и сувениры",
+    description: "Брендированные коробки, подарочные наборы и презентационная упаковка.",
+    href: "/ru/catalog/packaging-souvenirs/",
+    tags: ["Коробки", "Пакеты", "Подарки"]
+  },
+  {
+    title: "Бизнес-продукция",
+    description: "Ежедневники, папки, бизнес-наборы, картхолдеры и корпоративные подарки.",
+    href: "/ru/catalog/business-products/",
+    tags: ["Наборы", "Папки", "Ежедневники"]
+  }
+];
+---
+
+<BaseLayout
+  locale="ru"
+  path="/ru/"
+  pathWithoutLocale=""
+  title="Aksessoriuz — брендированная продукция, упаковка и аксессуары для бизнеса"
+  description="Изготавливаем брендированную продукцию, упаковку, аксессуары и бизнес-подарки для ресторанов, отелей и компаний в Узбекистане."
+>
+  <section class="bg-mist-100 py-16 md:py-24">
+    <div class="container-page grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Custom branded production</p>
+        <h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-tight text-ink-950 md:text-6xl">
+          Брендированные детали для бизнеса, которые видят и держат в руках
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-steel-600">
+          Производим меню, упаковку, корпоративные подарки, униформу и аксессуары с логотипом для ресторанов, отелей, ритейла и компаний.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition hover:bg-teal-600" href="/ru/contact/?intent=quote">Запросить расчет</a>
+          <a class="inline-flex min-h-12 items-center justify-center rounded-md border border-line-200 bg-white px-5 text-sm font-semibold text-ink-950 transition hover:border-emerald-700" href="/ru/catalog/">Смотреть каталог</a>
+        </div>
+      </div>
+      <QuoteForm client:idle locale="ru" source="home_hero" />
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="container-page">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-semibold text-ink-950">Выберите направление</h2>
+        <p class="mt-4 text-base leading-7 text-steel-600">Структура сайта поддерживает поиск по типу бизнеса, продукту или технологии производства.</p>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-3">
+        {groups.map((group) => <ProductGroupCard {...group} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

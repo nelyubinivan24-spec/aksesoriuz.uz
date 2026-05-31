@@ -1,0 +1,40 @@
+---
+import { footerGroups } from "@data/navigation";
+import { site, type Locale } from "@data/site";
+
+const { locale } = Astro.props as { locale: Locale };
+---
+
+<footer class="bg-ink-950 py-14 text-white">
+  <div class="container-page grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr_1.1fr]">
+    <div>
+      <a href={`/${locale}/`} class="text-xl font-semibold">Aksessoriuz</a>
+      <p class="mt-4 max-w-sm text-sm leading-6 text-white/70">
+        {locale === "ru"
+          ? "Брендированная продукция, аксессуары, упаковка и производственные услуги для бизнеса."
+          : "Branded products, accessories, packaging, and production services for business."}
+      </p>
+    </div>
+
+    {footerGroups.map((group) => (
+      <div>
+        <h2 class="text-sm font-semibold text-white">{group.title[locale]}</h2>
+        <ul class="mt-4 space-y-3 text-sm text-white/70">
+          {group.items.map((item) => (
+            <li><a class="transition hover:text-white" href={item.href[locale]}>{item.label[locale]}</a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+
+    <div>
+      <h2 class="text-sm font-semibold text-white">{locale === "ru" ? "Контакты" : "Contact"}</h2>
+      <ul class="mt-4 space-y-3 text-sm text-white/70">
+        <li><a class="transition hover:text-white" href={`tel:${site.contacts.phonePrimary}`}>{site.contacts.phonePrimaryLabel}</a></li>
+        <li><a class="transition hover:text-white" href={`tel:${site.contacts.phoneSecondary}`}>{site.contacts.phoneSecondaryLabel}</a></li>
+        <li><a class="transition hover:text-white" href={`mailto:${site.contacts.email}`}>{site.contacts.email}</a></li>
+        <li>{site.contacts.address[locale]}</li>
+      </ul>
+    </div>
+  </div>
+</footer>
